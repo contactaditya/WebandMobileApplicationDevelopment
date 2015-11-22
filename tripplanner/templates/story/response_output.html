@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>this is my web app</title>
+    </head>
+    <body>
+        <h1>Your search result</h1>
+
+
+        {% block content %}
+
+            <h3>restaurant name: {{name1}}</h3>
+            <a href = "{{link1}}"> {{name1}} website</a>
+            <h3>address: {{ address1}}</h3>
+
+            <h3>restaurant name: {{name2}}</h3>
+            <a href = "{{link2}}"> {{name2}} website</a>
+            <h3>address: {{ address2}}</h3>
+        {% endblock %}
+    </body>
+</html>

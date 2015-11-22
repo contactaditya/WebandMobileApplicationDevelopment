@@ -60,7 +60,7 @@ def get_name(request):
         address2 = response['businesses'][1]['location']['display_address']
         link2 = response['businesses'][1]['url']
         content_text = {'name1': name1, 'link1': link1, 'address1': address1, 'name2': name2,'link2': link2,
-                        'address2': address2}
+                        'address2': address2,'city':city}
         return render(request, 'story/response_output.html', content_text)
 
 

@@ -1,66 +1,77 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
+
 from tripplanner.forms import NameForm
-
-
-from yelpapi import YelpAPI
-
-CONSUMER_KEY = 'wPpxflGeQ2nkq_82_nRlGA'
-CONSUMER_SECRET = '4zzfAe7itI9yDZ1nYzlCQq9eXJ8'
-TOKEN = '7JHtzAwqKZ66OCFnyaXD5F2lUSUW05Ry'
-TOKEN_SECRET = 'xWXX3NnyDrUgsvz0WxhbtvATdVw'
+from tripplanner.apiCall import *
 
 
 def home(request):
     return render(request, 'story/index.html')
-    # POST method
-    # return render(request,'story/user_input.html')
-
 
 def get_name(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = NameForm(request.POST)
-        # check whether it's valid:
         if form.is_valid():
-
             city = form.cleaned_data['city']
+            # YELP
+            bar = form.cleaned_data['bar']
+            coffee = form.cleaned_data['coffee']
+            restaurant = form.cleaned_data['restaurant']
             term = form.cleaned_data['term']
-            yelp_api = YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET)
-            response = yelp_api.search_query(term=term, location=city, sort=2, limit=5)
-            print(response)
-            name1 = response['businesses'][0]['name']
-            address1 = response['businesses'][0]['location']['display_address']
-            link1 = response['businesses'][0]['url']
+            #EVENTBRITE
+            art = form.cleaned_data['art']
+            fashion = form.cleaned_data['fashion']
+            film = form.cleaned_data['film']
+            holiday = form.cleaned_data['holiday']
+            music = form.cleaned_data['music']
+            shopping = form.cleaned_data['shopping']
+            sports = form.cleaned_data['sports']
+            outdoor = form.cleaned_data['outdoor']
+            acti = form.cleaned_data['acti']
+            #FOURSQUARE
 
-            name2 = response['businesses'][1]['name']
-            address2 = response['businesses'][1]['location']['display_address']
-            link2 = response['businesses'][1]['url']
-            content_text = {'name1': name1, 'link1': link1, 'address1': address1, 'name2': name2, 'link2': link2,
-                            'address2': address2}
+
+            context_list = []
+            #YELP
+            if bar == True:
+                context_list+=callYelp(city,'bar',2)
+            if coffee == True:
+                context_list+=callYelp(city,'coffee',2)
+            if restaurant == True:
+                context_list+=callYelp(city,'restaurant',2)
+            if term != "":
+                context_list+=callYelp(city,term,2)
+            #EVENTBRITE
+            if art == True:
+                context_list+=callEventbrite(city,'art',2)
+            if fashion == True:
+                context_list+=callEventbrite(city,'fashion',2)
+            if film == True:
+                context_list+=callEventbrite(city,'film',2)
+            if holiday == True:
+                context_list+=callEventbrite(city,'holiday',2)
+            if music == True:
+                context_list+=callEventbrite(city,'music',2)
+            if shopping == True:
+                context_list+=callEventbrite(city,'shopping',2)
+            if sports == True:
+                context_list+=callEventbrite(city,'sports',2)
+            if outdoor == True:
+                context_list+=callEventbrite(city,'outdoor',2)
+            if acti != "":
+                context_list+=callEventbrite(city,'concert',2)
+            #FOURSQUARE
+
+            #SHOPPING
+            #TREND
             # send Post request
-            # return render(request,'story/response_output.html',content_text)
-            # return render(request,'story/index.html')
+            # return HttpResponse(context_list)
+            return render(request,'story/response_output.html',{'content_list':context_list})
+
+
+
 
     # if a GET (or any other method) we'll create a blank form
-
-    else:
-        city = request.GET.get('city')
-        term = request.GET.get('term')
-        yelp_api = YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET)
-        response = yelp_api.search_query(term=term, location=city, sort=2, limit=5)
-        print(response)
-        name1 = response['businesses'][0]['name']
-        address1 = response['businesses'][0]['location']['display_address']
-        link1 = response['businesses'][0]['url']
-
-        name2 = response['businesses'][1]['name']
-        address2 = response['businesses'][1]['location']['display_address']
-        link2 = response['businesses'][1]['url']
-        content_text = {'name1': name1, 'link1': link1, 'address1': address1, 'name2': name2,'link2': link2,
-                        'address2': address2,'city':city}
-        return render(request, 'story/response_output.html', content_text)
-
-
+    # else:

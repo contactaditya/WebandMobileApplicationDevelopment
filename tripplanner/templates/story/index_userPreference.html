@@ -282,6 +282,334 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    </div>
 		    <!--/slider -->
 		</div>
+<<<<<<< Updated upstream:tripplanner/templates/story/index.html
+=======
+		<!----start-find-place---->
+		<div class="find-place">
+			<div class="wrap">
+				<div class="p-h">
+					<span>EXPLORE THE</span>
+					<label>CITY</label>
+				</div>
+				<!---strat-date-piker---->
+				  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+				  <script>
+				  $(function() {
+				    $( "#datepicker" ).datepicker();
+				  });
+				  </script>
+				<!---/End-date-piker---->
+				<div class="p-ww">
+					<form action="/your-search/" method="post">{% csrf_token %}
+						<span> Where</span><br>
+						<label for = "city"> </label> <input class="dest" type="text" name="city" id="city" value="{{ current_name }}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Destination';}"><br><br>
+
+                        Bar<input type="checkbox" name="bar" value="bar"><br>
+                        Coffee<input type="checkbox" name="coffee" value="coffee"><br>
+                        Restaurant<input type="checkbox" name="restaurant" value="restaurant"><br>
+{#                        Search your Food&Drinks<label for = "term"> </label> <input class="dest" type="text" name="term" id="term" value="{{ current_name }}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Destination';}">#}
+                        Search your Food&Drinks<br>
+                        <label for = "term"> </label> <input class="dest" type="text" name="term" id="term"><br><br>
+                        Arts<input type="checkbox" name="art" value="art"><br>
+                        Fashion<input type="checkbox" name="fashion" value="fashion"><br>
+                        Film<input type="checkbox" name="film" value="film"><br>
+                        Holiday<input type="checkbox" name="holiday" value="holiday"><br>
+                        Music<input type="checkbox" name="music" value="music"><br>
+                        Shopping<input type="checkbox" name="shopping" value="shopping"><br>
+                        Sports<input type="checkbox" name="sports" value="sports"><br>
+                        Travel&Outdoor<input type="checkbox" name="outdoor" value="outdoor"><br>
+                        Search your Activity<br><label for = "acti"> </label> <input class="dest" type="text" name="acti" id="acti"><br><br>
+                        Top Picks of the city<input type="checkbox" name="pick" value="pick"><br>
+                        Trending of the week in the city<input type="checkbox" name="trend" value="trend"><br>
+                        <br>
+                        <input type="submit" value="Submit">
+					</form>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!----//End-find-place---->
+		<!----start-offers---->
+		<div class="offers">
+			<div class="offers-head">
+				<h3>Special Offers</h3>
+				<p>Best 2014 packages where people love to stay!</p>
+			</div>
+			<!-- start content_slider -->
+			<!-- FlexSlider -->
+			 <!-- jQuery -->
+			  <link rel="stylesheet" href="{% static "bootstrap/css/flexslider.css" %}" type="text/css" media="screen" />
+			  <!-- FlexSlider -->
+			  <script defer src="{% static "bootstrap/js/jquery.flexslider.js" %}"></script>
+			  <script type="text/javascript">
+			    $(function(){
+			      SyntaxHighlighter.all();
+			    });
+			    $(window).load(function(){
+			      $('.flexslider').flexslider({
+			        animation: "slide",
+			        animationLoop: true,
+			        itemWidth:250,
+			        itemMargin: 5,
+			        start: function(slider){
+			          $('body').removeClass('loading');
+			        }
+			      });
+			    });
+			  </script>
+			<!-- Place somewhere in the <body> of your page -->
+				 <section class="slider">
+		        <div class="flexslider carousel">
+		          <ul class="slides">
+		            <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p1.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p2.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p3.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p4.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		            <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p5.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p6.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p1.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p2.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		             <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p3.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    	 <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p4.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p5.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		  	    		 <li onclick="location.href='#';">
+		  	    	    <img src="{% static "bootstrap/images/p6.jpg" %}" />
+		  	    	    <!----place-caption-info---->
+		  	    	    <div class="caption-info">
+		  	    	    	 <div class="caption-info-head">
+		  	    	    	 	<div class="caption-info-head-left">
+			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>
+			  	    	    	 	<span>Bonus Extras!</span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="caption-info-head-right">
+		  	    	    	 		<span> </span>
+		  	    	    	 	</div>
+		  	    	    	 	<div class="clear"> </div>
+		  	    	    	 </div>
+		  	    	    </div>
+		  	    	     <!----//place-caption-info---->
+		  	    		</li>
+		          </ul>
+		        </div>
+		      </section>
+              <!-- //End content_slider -->
+		</div>
+		<!----//End-offers---->
+		<!---start-holiday-types---->
+			<div class="holiday-types">
+				<div class="wrap">
+					<div class="holiday-type-head">
+						<h3>Holidays Type</h3>
+						<span>get explore your dream to travel the world!</span>
+					</div>
+					<div class="holiday-type-grids">
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon1"> </span>
+							<a href="#">Cruise</a>
+						</div>
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon2"> </span>
+							<a href="#">City Breaks</a>
+						</div>
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon3"> </span>
+							<a href="#">Honeymoon</a>
+						</div>
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon4"> </span>
+							<a href="#">Adventure</a>
+						</div>
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon5"> </span>
+							<a href="#">Safari</a>
+						</div>
+						<div class="holiday-type-grid" onclick="location.href='#';">
+							<span class="icon6"> </span>
+							<a href="#">Beach</a>
+						</div>
+						<div class="clear"> </div>
+					</div>
+				</div>
+				</div>
+		<!---//End-holiday-types---->
+		<!----//End-images-slider---->
+>>>>>>> Stashed changes:tripplanner/templates/story/index_userPreference.html
 		<!----start-clients---->
 		<div class="clients">
 			<div class="client-head">

@@ -20,9 +20,10 @@ from django.contrib import admin
 #    url(r'^admin/', include(admin.site.urls)),
 # urlpatterns = [url(r'^admin/', include(admin.site.urls)),]
 
-urlpatterns = patterns(
-                '', url(r'^$', 'tripplanner.views.home',name='home'),
+urlpatterns = patterns('',
+                url(r'^$', 'tripplanner.views.home',name='home'),
                 # send POST request
-                url(r'^your-name/', 'tripplanner.views.get_name',name='get_name'),
+                url(r'^your-search/', 'tripplanner.views.get_name',name='get_name'),
+
                 # send GET request
                 url(r'^my_yelp/', 'tripplanner.views.get_name',name='home'),)

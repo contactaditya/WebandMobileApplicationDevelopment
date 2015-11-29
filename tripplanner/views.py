@@ -7,7 +7,7 @@ from tripplanner.apiCall import *
 
 
 def home(request):
-    return render(request, 'story/index_userPreference.html')
+    return render(request, 'story/index_home.html')
 
 def get_name(request):
     # if this is a POST request we need to process the form data

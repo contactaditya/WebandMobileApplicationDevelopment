@@ -1,0 +1,326 @@
+{% load staticfiles %}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Voyage Website Template | Home :: w3layouts</title>
+{#		<link href="images/css/style.css" rel='stylesheet' type='text/css' />#}
+        <link href="{% static "bootstrap/css/style.css"%}" rel='stylesheet' type='text/css' />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+{#		</script>#}
+		<script src="{% static "bootstrap/js/jquery.min.js"%}"></script>
+		<!---script---->
+		<link rel="stylesheet" href="{% static "bootstrap/css/jquery.bxslider.css" %}" type="text/css" />
+		<script src="{% static "bootstrap/js/jquery.bxslider.js"%}"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.bxslider').bxSlider({
+						 auto: true,
+ 						 autoControls: true,
+						 minSlides: 4,
+						 maxSlides: 4,
+						 slideWidth:450,
+						 slideMargin: 10
+					});
+				});
+			</script>
+		<!---//script---->
+		<!---smoth-scrlling---->
+			<script type="text/javascript">
+				$(document).ready(function(){
+									$('a[href^="#"]').on('click',function (e) {
+									    e.preventDefault();
+									    var target = this.hash,
+									    $target = $(target);
+									    $('html, body').stop().animate({
+									        'scrollTop': $target.offset().top
+									    }, 1000, 'swing', function () {
+									        window.location.hash = target;
+									    });
+									});
+								});
+				</script>
+		<!---//smoth-scrlling---->
+		<!----start-top-nav-script---->
+		<script type="text/javascript" src="{% static "bootstrap/js/flexy-menu.js"%}"></script>
+		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+		<!----//End-top-nav-script---->
+		<!---webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!---webfonts---->
+		<!--start slider -->
+	    <link rel="stylesheet" href="{% static "bootstrap/css/fwslider.css" %}" media="all">
+		<script src="{% static "bootstrap/js/jquery-ui.min.js" %}"></script>
+		<script src="{% static "bootstrap/js/css3-mediaqueries.js" %}"></script>
+		<script src="{% static "bootstrap/js/fwslider.js" %}"></script>
+		<!--end slider -->
+		<!---calender-style---->
+		<link rel="stylesheet" href="{% static "bootstrap/css/jquery-ui.css" %}"/>
+		<!---//calender-style---->
+	</head>
+	<body>
+		<!----start-wrap---->
+ <!----start-top-header----->
+			<div class="top-header" id="header">
+				<div class="wrap">
+				<div class="top-header-right">
+					<ul>
+						<li><a class="pin" href="#"><span> </span></a></li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<!----//End-top-header----->
+
+
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<!--- start-logo---->
+				<div class="logo">
+					<a href="index.html"><img src="{% static "bootstrap/images/logo.png" %}" title="TRIP PLANNER" /></a>
+				</div>
+				<!--- //End-logo---->
+				<!--- start-top-nav---->
+				<div class="top-nav">
+						<ul class="flexy-menu thick orange">
+							<li><a href="#">WELCOME TO THE HOME PAGE OF OUR WEB APPLICATION </a></li>
+						</ul>
+						<!----search-scripts---->
+						<script src="{%static "bootstrap/js/modernizr.custom.js"%}"></script>
+						<script src="{% static "bootstrap/js/classie.js"%}"></script>
+						<script src="{% static "bootstrap/js/uisearch.js" %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+				</div>
+				<!--- //End-top-nav---->
+				<div class="clear"> </div>
+			</div>
+			<!---//End-header---->
+		</div>
+		<!----start-images-slider---->
+		<div class="images-slider">
+			<!-- start slider -->
+		    <div id="fwslider">
+		        <div class="slider_container">
+                    <!--/slide -->
+                    <div class="slide">
+		                <img src="{% static "bootstrap/images/1.jpg" %}" alt="" height="510" width="1698"/>
+
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">To travel is to live</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>
+		                        		<li><a class="minfo" href="register.html"> Register </a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <!--/slide -->
+
+                    <div class="slide">
+		                <img src="{% static "bootstrap/images/2.jpg" %}" alt="" height="510" width="1698">
+
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">To travel is to live</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>
+		                        		<li><a class="minfo" href="register.html"> Register </a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <!--/slide -->
+
+                    <div class="slide">
+		                <img src="{% static "bootstrap/images/3.jpg" %}" alt="" height="510" width="1698">
+
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">To travel is to live</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>
+		                        		<li><a class="minfo" href="register.html"> Register </a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <!--/slide -->
+
+                    <div class="slide">
+		                <img src="{% static "bootstrap/images/4.jpg" %}" alt="" height="510" width="1698">
+
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">To travel is to live</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>
+		                        		<li><a class="minfo" href="register.html"> Register </a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <!--/slide -->
+
+                    <div class="slide">
+		                <img src="{% static "bootstrap/images/5.jpg" %}" alt="" height="510" width="1698">
+
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">To travel is to live</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>
+		                        		<li><a class="minfo" href="register.html"> Register </a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <!--/slide -->
+
+                    <div class="slide">
+		                <img src="{% static "bootstrap/images/6.jpg" %}" alt="" height="510" width="1698">
+
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">To travel is to live</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>
+		                        		<li><a class="minfo" href="register.html"> Register </a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <!--/slide -->
+
+                    <div class="slide">
+		                <img src="{% static "bootstrap/images/7.jpg" %}" alt="" height="510" width="1698">
+
+		                <div class="slide_content">
+		                     <div class="slide_content_wrap">
+		                        <!-- Text title -->
+		                        <h4 class="title">To travel is to live</h4>
+		                        <!-- /Text title -->
+		                        <!-- Text description -->
+		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>
+		                        <!-- /Text description -->
+		                        <div class="slide-btns description">
+		                        	<ul>
+		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>
+		                        		<li><a class="minfo" href="register.html"> Register </a></li>
+		                        		<div class="clear"> </div>
+		                        	</ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <!--/slide -->
+		        </div>
+		        <div class="slidePrev"><span> </span></div>
+		        <div class="slideNext"><span> </span></div>
+		    </div>
+		    <!--/slider -->
+		</div>
+		<!----start-clients---->
+		<div class="clients">
+			<div class="client-head">
+				<h3>Happy Clients</h3>
+				<span> This is what our customer say about us and why they love our services! </span> <br> <br>
+
+							<img src="{% static "bootstrap/images/jami.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px; padding-left: 6cm;" >
+
+                            <img src="{% static "bootstrap/images/mike.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px;">
+
+                            <img src="{% static "bootstrap/images/jose.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px;">
+
+							<img src="{% static "bootstrap/images/laurence.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px;">
+                <br><br><br><br>
+			</div>
+			<div class="client-grids">
+
+			</div>
+		</div>
+		<!----//End-clients---->
+
+        <!----start-top-header----->
+			<div class="top-header" id="header">
+				<div class="wrap">
+				<div class="top-header-right">
+					<ul>
+						<li><a class="face" href="#"><span> </span></a></li>
+						<li><a class="twit" href="#"><span> </span></a></li>
+						<li><a class="thum" href="#"><span> </span></a></li>
+						<li><a class="pin" href="#"><span> </span></a></li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<!----//End-top-header----->
+
+		<!----//End-wrap---->
+	</body>
+</html>
+

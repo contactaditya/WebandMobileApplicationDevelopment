@@ -42,6 +42,7 @@ body{
 }
 .top-header{
 	background:#2C3E50;
+	text-align: center;
 }
 .top-header-left{
 	float:left;
@@ -81,6 +82,7 @@ body{
 }
 .top-header-right{
 	float:right;
+	margin: 0 auto;
 }
 .reg{
 	color:#1DD2AF;
@@ -94,14 +96,17 @@ body{
 }
 .top-header-right ul li{
 	float: left;
+	margin: 0 auto;
 }
 .top-header-right ul li a{
 	display: block;
 	padding: 0.55em;
+	margin: 0 auto;
 }
 .top-header-right ul li a span{
 	height:20px;
 	width: 20px;
+	margin: 0 auto;
 	display: block;
 }
 .top-header-right ul li a.face span{
@@ -131,12 +136,15 @@ body{
 .top-header-right ul li{
 	border-left: 1px ridge #36485A;
 	border-right: 1px ridge #28323C;
+	margin: 0 auto;
 }
 .top-header-right ul li:first-child{
 	border-left: 1px ridge #28323C;
+	margin: 0 auto;
 }
 .contact-info {
 	padding: 0.3em 0;
+	margin: 0 auto;
 }
 /*----main-header----*/
 .logo{
@@ -1110,6 +1118,18 @@ input[type="search"].sb-search-input {
 }
 /*----//End-copy-right-----*/
 /*----//End-footer----*/
+
+
+/*-----Happy Travelers Section----*/
+.example {
+  -webkit-columns: 8 150px;
+  -moz-columns: 8 150px;
+  columns: 8 150px;
+  -webkit-column-gap: 2em;
+  -moz-column-gap: 2em;
+  column-gap: 2em;
+}
+
 /*-----start-destination----*/
 .destination-head{
 	background: url(../images/head-bg.png) no-repeat 0px 0px;

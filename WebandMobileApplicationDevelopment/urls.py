@@ -22,8 +22,17 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
                 url(r'^$', 'tripplanner.views.home',name='home'),
+
                 # send POST request
+
                 url(r'^your-search/', 'tripplanner.views.get_name',name='get_name'),
 
                 # send GET request
-                url(r'^my_yelp/', 'tripplanner.views.get_name',name='home'),)
+
+                url(r'^my_yelp/', 'tripplanner.views.get_name',name='home'),
+
+                url(r'^login/', 'tripplanner.views.get_login',name='login'),
+
+                url(r'^registration/', 'tripplanner.views.get_registration',name='registration'),
+
+                url(r'^userprofile/', 'tripplanner.views.get_userprofile',name='userprofile'),)

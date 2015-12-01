@@ -9,6 +9,19 @@ from tripplanner.apiCall import *
 def home(request):
     return render(request, 'story/index_home.html')
 
+
+def get_login(request):
+    return render(request, 'story/login.html')
+
+
+def get_registration(request):
+    return render(request, 'story/registration.html')
+
+
+def get_userprofile(request):
+    return render(request, 'story/userprofile.html')
+
+
 def get_name(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -20,7 +33,7 @@ def get_name(request):
             coffee = form.cleaned_data['coffee']
             restaurant = form.cleaned_data['restaurant']
             term = form.cleaned_data['term']
-            #EVENTBRITE
+            # EVENTBRITE
             art = form.cleaned_data['art']
             fashion = form.cleaned_data['fashion']
             film = form.cleaned_data['film']
@@ -30,11 +43,9 @@ def get_name(request):
             sports = form.cleaned_data['sports']
             outdoor = form.cleaned_data['outdoor']
             acti = form.cleaned_data['acti']
-            #FOURSQUARE
-
-
+            # FOURSQUARE
             context_list = []
-            #YELP
+            # YELP
             if bar == True:
                 context_list+=callYelp(city,'bar',2)
             if coffee == True:
@@ -43,7 +54,7 @@ def get_name(request):
                 context_list+=callYelp(city,'restaurant',2)
             if term != "":
                 context_list+=callYelp(city,term,2)
-            #EVENTBRITE
+            # EVENTBRITE
             if art == True:
                 context_list+=callEventbrite(city,'art',2)
             if fashion == True:
@@ -69,9 +80,6 @@ def get_name(request):
             # send Post request
             # return HttpResponse(context_list)
             return render(request,'story/response_output.html',{'content_list':context_list})
-
-
-
 
     # if a GET (or any other method) we'll create a blank form
     # else:

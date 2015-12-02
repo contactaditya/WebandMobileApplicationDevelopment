@@ -18,4 +18,6 @@ class NameForm(forms.Form):
     outdoor = forms.BooleanField(required=False, label='outdoor')
     acti = forms.CharField(label='acti',max_length=100,required=False)
 
+    trend = forms.BooleanField(required=False,label='trend')
+
 

@@ -6,6 +6,9 @@ CONSUMER_SECRET = '4zzfAe7itI9yDZ1nYzlCQq9eXJ8'
 TOKEN = '7JHtzAwqKZ66OCFnyaXD5F2lUSUW05Ry'
 TOKEN_SECRET = 'xWXX3NnyDrUgsvz0WxhbtvATdVw'
 
+id = "JSJUFLMN4451RNIYBH1LAO1MUQNJNLV1V55CIL5L5DWKQDUW"
+secret = "MNF2SQOTOKNA22UIJ1XVRENF03O3PILS2VC1RXUTIM5NIC0X&v=20151111"
+
 def callYelp(location,term,limit):
     yelp_api = YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET)
     response = yelp_api.search_query(term=term, location=location, sort=0, limit=limit)
@@ -47,10 +50,41 @@ def callEventbrite(city,keyword,limit):
         single['venueName'] = r['name']
         single['lat'] = r['latitude']
         single['lon'] = r['longitude']
-        single['address'] = r['address']['address_1']+","+r['address']['city']+","+r['address']['region']+ ","+r['address']['postal_code']
+        single['address'] = [r['address']['address_1'],r['address']['city'],r['address']['region'],r['address']['postal_code']]
         # #INFO of organizer
         o = requests.get("https://www.eventbriteapi.com/v3/organizers/"+event['organizer_id']+"/?token=5MKESEL3LITBDQVL6J2K").json()
         single['orgName'] = o['name']
         single['orgUrl'] = o['url']
+        context_list.append(single)
+    return context_list
+
+def callFoursquare(city,limit):
+    geo_response = requests.get("https://maps.googleapis.com/maps/api/geocode/json?address="+city+"&key=AIzaSyDYnHlAshPYjaL0SbfvTIucGtkbhoO3sQg")
+    lat = str(geo_response.json()['results'][0]['geometry']['location']['lat'])
+    lon = str(geo_response.json()['results'][0]['geometry']['location']['lng'])
+    fs_response = requests.get("https://api.foursquare.com/v2/venues/trending?ll="+lat+","+lon+"&radius=15000&limit="+str(limit)+"&client_id="+id+"&client_secret="+secret).json()['response']['venues']
+    context_list = []
+    for f in fs_response:
+        single = {}
+        single['kind'] = 'hot'
+        if 'formattedPhone' in f['contact']:
+            single['phone'] = f['contact']['formattedPhone']
+        else:
+            single['phone'] = ""
+        if 'twitter' in f['contact']:
+            single['twitter'] = f['contact']['twitter']
+        else:
+            single['twitter'] = ""
+        if 'facebookName' in f['contact']:
+            single['facebook'] = f['contact']['facebookName']
+        else:
+            single['facebook'] = ""
+        if 'url' in f:
+            single['link'] = f['url']
+
+        single['name'] = f['name']
+
+        single['address'] = f['location']['formattedAddress']
+        single['lat'],single['lon']= f['location']['lat'],f['location']['lng']
         context_list.append(single)
     return context_list

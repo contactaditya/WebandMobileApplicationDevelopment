@@ -44,42 +44,47 @@ def get_name(request):
             outdoor = form.cleaned_data['outdoor']
             acti = form.cleaned_data['acti']
             # FOURSQUARE
+            trend = form.cleaned_data['trend']
+            num_YelpCall = 5
+            num_EventbriteCall = 3
+            num_FoursquareCall=10
             context_list = []
             # YELP
             if bar == True:
-                context_list+=callYelp(city,'bar',2)
+                context_list+=callYelp(city,'bar',num_YelpCall)
             if coffee == True:
-                context_list+=callYelp(city,'coffee',2)
+                context_list+=callYelp(city,'coffee',num_YelpCall)
             if restaurant == True:
-                context_list+=callYelp(city,'restaurant',2)
+                context_list+=callYelp(city,'restaurant',num_YelpCall)
             if term != "":
                 context_list+=callYelp(city,term,2)
             # EVENTBRITE
+                context_list+=callYelp(city,term,num_YelpCall)
+            #EVENTBRITE
             if art == True:
-                context_list+=callEventbrite(city,'art',2)
+                context_list+=callEventbrite(city,'art',num_EventbriteCall)
             if fashion == True:
-                context_list+=callEventbrite(city,'fashion',2)
+                context_list+=callEventbrite(city,'fashion',num_EventbriteCall)
             if film == True:
-                context_list+=callEventbrite(city,'film',2)
+                context_list+=callEventbrite(city,'film',num_EventbriteCall)
             if holiday == True:
-                context_list+=callEventbrite(city,'holiday',2)
+                context_list+=callEventbrite(city,'holiday',num_EventbriteCall)
             if music == True:
-                context_list+=callEventbrite(city,'music',2)
+                context_list+=callEventbrite(city,'music',num_EventbriteCall)
             if shopping == True:
-                context_list+=callEventbrite(city,'shopping',2)
+                context_list+=callEventbrite(city,'shopping',num_EventbriteCall)
             if sports == True:
-                context_list+=callEventbrite(city,'sports',2)
+                context_list+=callEventbrite(city,'sports',num_EventbriteCall)
             if outdoor == True:
-                context_list+=callEventbrite(city,'outdoor',2)
+                context_list+=callEventbrite(city,'outdoor',num_EventbriteCall)
             if acti != "":
-                context_list+=callEventbrite(city,'concert',2)
+                context_list+=callEventbrite(city,'concert',num_EventbriteCall)
             #FOURSQUARE
-
-            #SHOPPING
             #TREND
+            if trend == True:
+                context_list+=callFoursquare(city,num_FoursquareCall)
             # send Post request
-            # return HttpResponse(context_list)
-            return render(request,'story/response_output.html',{'content_list':context_list})
+            return render(request,'story/index_userResponse.html',{'content_list':context_list})
 
     # if a GET (or any other method) we'll create a blank form
     # else:

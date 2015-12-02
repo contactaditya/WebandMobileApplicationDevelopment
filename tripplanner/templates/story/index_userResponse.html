@@ -1,0 +1,536 @@
+{% load staticfiles %}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+            <title>Google Maps Multiple Markers</title>
+            <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <link href="{% static "bootstrap/css/mystyle.css"%}" rel='stylesheet' type='text/css' />
+		<title>Voyage Website Template | Home :: w3layouts</title>
+{#		<link href="images/css/style.css" rel='stylesheet' type='text/css' />#}
+        <link href="{% static "bootstrap/css/style.css"%}" rel='stylesheet' type='text/css' />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+{#		</script>#}
+		<script src="{% static "bootstrap/js/jquery.min.js"%}"></script>
+		<!---script---->
+		<link rel="stylesheet" href="{% static "bootstrap/css/jquery.bxslider.css" %}" type="text/css" />
+		<script src="{% static "bootstrap/js/jquery.bxslider.js"%}"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.bxslider').bxSlider({
+						 auto: true,
+ 						 autoControls: true,
+						 minSlides: 4,
+						 maxSlides: 4,
+						 slideWidth:450,
+						 slideMargin: 10
+					});
+				});
+			</script>
+		<!---//script---->
+		<!---smoth-scrlling---->
+			<script type="text/javascript">
+				$(document).ready(function(){
+									$('a[href^="#"]').on('click',function (e) {
+									    e.preventDefault();
+									    var target = this.hash,
+									    $target = $(target);
+									    $('html, body').stop().animate({
+									        'scrollTop': $target.offset().top
+									    }, 1000, 'swing', function () {
+									        window.location.hash = target;
+									    });
+									});
+								});
+				</script>
+		<!---//smoth-scrlling---->
+		<!----start-top-nav-script---->
+		<script type="text/javascript" src="{% static "bootstrap/js/flexy-menu.js"%}"></script>
+		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+		<!----//End-top-nav-script---->
+		<!---webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!---webfonts---->
+		<!--start slider -->
+	    <link rel="stylesheet" href="{% static "bootstrap/css/fwslider.css" %}" media="all">
+		<script src="{% static "bootstrap/js/jquery-ui.min.js" %}"></script>
+		<script src="{% static "bootstrap/js/css3-mediaqueries.js" %}"></script>
+		<script src="{% static "bootstrap/js/fwslider.js" %}"></script>
+		<!--end slider -->
+		<!---calender-style---->
+		<link rel="stylesheet" href="{% static "bootstrap/css/jquery-ui.css" %}"/>
+		<!---//calender-style---->
+	</head>
+	<body>
+		<!----start-wrap---->
+ <!----start-top-header----->
+			<div class="top-header" id="header">
+				<div class="wrap">
+				<div class="top-header-right">
+					<ul>
+						<li><a class="pin" href="#"><span> </span></a></li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<!----//End-top-header----->
+
+
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<!--- start-logo---->
+				<div class="logo">
+					<a href="index.html"><img src="{% static "bootstrap/images/logo.png" %}" title="TRIP PLANNER" /></a>
+				</div>
+				<!--- //End-logo---->
+				<!--- start-top-nav---->
+				<div class="top-nav">
+						<ul class="flexy-menu thick orange">
+							<li><a href="#">WELCOME TO THE HOME PAGE OF OUR WEB APPLICATION </a></li>
+						</ul>
+						<!----search-scripts---->
+						<script src="{%static "bootstrap/js/modernizr.custom.js"%}"></script>
+						<script src="{% static "bootstrap/js/classie.js"%}"></script>
+						<script src="{% static "bootstrap/js/uisearch.js" %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+				</div>
+				<!--- //End-top-nav---->
+				<div class="clear"> </div>
+			</div>
+			<!---//End-header---->
+		</div>
+{#		<!----start-images-slider---->#}
+{#		<div class="images-slider">#}
+{#			<!-- start slider -->#}
+{#		    <div id="fwslider">#}
+{#		        <div class="slider_container">#}
+{#                    <!--/slide -->#}
+{#                    <div class="slide">#}
+{#		                <img src="{% static "bootstrap/images/1.jpg" %}" alt="" height="510" width="1698"/>#}
+{##}
+{#		                <div class="slide_content">#}
+{#		                     <div class="slide_content_wrap">#}
+{#		                        <!-- Text title -->#}
+{#		                        <h4 class="title">To travel is to live</h4>#}
+{#		                        <!-- /Text title -->#}
+{#		                        <!-- Text description -->#}
+{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
+{#		                        <!-- /Text description -->#}
+{#		                        <div class="slide-btns description">#}
+{#		                        	<ul>#}
+{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
+{#		                        		<li><a class="minfo" href="register.html"> Register </a></li>#}
+{#		                        		<div class="clear"> </div>#}
+{#		                        	</ul>#}
+{#		                        </div>#}
+{#		                    </div>#}
+{#		                </div>#}
+{#		            </div>#}
+{#		            <!--/slide -->#}
+{##}
+{#                    <div class="slide">#}
+{#		                <img src="{% static "bootstrap/images/2.jpg" %}" alt="" height="510" width="1698">#}
+{##}
+{#		                <div class="slide_content">#}
+{#		                     <div class="slide_content_wrap">#}
+{#		                        <!-- Text title -->#}
+{#		                        <h4 class="title">To travel is to live</h4>#}
+{#		                        <!-- /Text title -->#}
+{#		                        <!-- Text description -->#}
+{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
+{#		                        <!-- /Text description -->#}
+{#		                        <div class="slide-btns description">#}
+{#		                        	<ul>#}
+{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
+{#		                        		<li><a class="minfo" href="register.html"> Register </a></li>#}
+{#		                        		<div class="clear"> </div>#}
+{#		                        	</ul>#}
+{#		                        </div>#}
+{#		                    </div>#}
+{#		                </div>#}
+{#		            </div>#}
+{#		            <!--/slide -->#}
+{##}
+{#                    <div class="slide">#}
+{#		                <img src="{% static "bootstrap/images/3.jpg" %}" alt="" height="510" width="1698">#}
+{##}
+{#		                <div class="slide_content">#}
+{#		                     <div class="slide_content_wrap">#}
+{#		                        <!-- Text title -->#}
+{#		                        <h4 class="title">To travel is to live</h4>#}
+{#		                        <!-- /Text title -->#}
+{#		                        <!-- Text description -->#}
+{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
+{#		                        <!-- /Text description -->#}
+{#		                        <div class="slide-btns description">#}
+{#		                        	<ul>#}
+{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
+{#		                        		<li><a class="minfo" href="register.html"> Register </a></li>#}
+{#		                        		<div class="clear"> </div>#}
+{#		                        	</ul>#}
+{#		                        </div>#}
+{#		                    </div>#}
+{#		                </div>#}
+{#		            </div>#}
+{#		            <!--/slide -->#}
+{##}
+{#                    <div class="slide">#}
+{#		                <img src="{% static "bootstrap/images/4.jpg" %}" alt="" height="510" width="1698">#}
+{##}
+{#		                <div class="slide_content">#}
+{#		                     <div class="slide_content_wrap">#}
+{#		                        <!-- Text title -->#}
+{#		                        <h4 class="title">To travel is to live</h4>#}
+{#		                        <!-- /Text title -->#}
+{#		                        <!-- Text description -->#}
+{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
+{#		                        <!-- /Text description -->#}
+{#		                        <div class="slide-btns description">#}
+{#		                        	<ul>#}
+{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
+{#		                        		<li><a class="minfo" href="register.html"> Register </a></li>#}
+{#		                        		<div class="clear"> </div>#}
+{#		                        	</ul>#}
+{#		                        </div>#}
+{#		                    </div>#}
+{#		                </div>#}
+{#		            </div>#}
+{#		            <!--/slide -->#}
+{##}
+{#                    <div class="slide">#}
+{#		                <img src="{% static "bootstrap/images/5.jpg" %}" alt="" height="510" width="1698">#}
+{##}
+{#		                <div class="slide_content">#}
+{#		                     <div class="slide_content_wrap">#}
+{#		                        <!-- Text title -->#}
+{#		                        <h4 class="title">To travel is to live</h4>#}
+{#		                        <!-- /Text title -->#}
+{#		                        <!-- Text description -->#}
+{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
+{#		                        <!-- /Text description -->#}
+{#		                        <div class="slide-btns description">#}
+{#		                        	<ul>#}
+{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
+{#		                        		<li><a class="minfo" href="register.html"> Register </a></li>#}
+{#		                        		<div class="clear"> </div>#}
+{#		                        	</ul>#}
+{#		                        </div>#}
+{#		                    </div>#}
+{#		                </div>#}
+{#		            </div>#}
+{#		            <!--/slide -->#}
+{##}
+{#                    <div class="slide">#}
+{#		                <img src="{% static "bootstrap/images/6.jpg" %}" alt="" height="510" width="1698">#}
+{##}
+{#		                <div class="slide_content">#}
+{#		                     <div class="slide_content_wrap">#}
+{#		                        <!-- Text title -->#}
+{#		                        <h4 class="title">To travel is to live</h4>#}
+{#		                        <!-- /Text title -->#}
+{#		                        <!-- Text description -->#}
+{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
+{#		                        <!-- /Text description -->#}
+{#		                        <div class="slide-btns description">#}
+{#		                        	<ul>#}
+{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
+{#		                        		<li><a class="minfo" href="register.html"> Register </a></li>#}
+{#		                        		<div class="clear"> </div>#}
+{#		                        	</ul>#}
+{#		                        </div>#}
+{#		                    </div>#}
+{#		                </div>#}
+{#		            </div>#}
+{#		            <!--/slide -->#}
+{##}
+{#                    <div class="slide">#}
+{#		                <img src="{% static "bootstrap/images/7.jpg" %}" alt="" height="510" width="1698">#}
+{##}
+{#		                <div class="slide_content">#}
+{#		                     <div class="slide_content_wrap">#}
+{#		                        <!-- Text title -->#}
+{#		                        <h4 class="title">To travel is to live</h4>#}
+{#		                        <!-- /Text title -->#}
+{#		                        <!-- Text description -->#}
+{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
+{#		                        <!-- /Text description -->#}
+{#		                        <div class="slide-btns description">#}
+{#		                        	<ul>#}
+{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
+{#		                        		<li><a class="minfo" href="register.html"> Register </a></li>#}
+{#		                        		<div class="clear"> </div>#}
+{#		                        	</ul>#}
+{#		                        </div>#}
+{#		                    </div>#}
+{#		                </div>#}
+{#		            </div>#}
+{#		            <!--/slide -->#}
+{#		        </div>#}
+{#		        <div class="slidePrev"><span> </span></div>#}
+{#		        <div class="slideNext"><span> </span></div>#}
+{#		    </div>#}
+{#		    <!--/slider -->#}
+{#		</div>#}
+
+		<!----start-find-place---->
+		<div class="find-place">
+			<div class="wrap">
+				<div class="p-h">
+					<span>EXPLORE THE</span>
+					<label>CITY</label>
+				</div>
+{#				<!---strat-date-piker---->#}
+{#				  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>#}
+{#				  <script>#}
+{#				  $(function() {#}
+{#				    $( "#datepicker" ).datepicker();#}
+{#				  });#}
+{#				  </script>#}
+{#				<!---/End-date-piker---->#}
+				<div class="p-ww">
+                    <h1>FOOD&DRINKS</h1><br>
+<table class="result-table">
+  <tr>
+    <th>Foodie name</th>
+    <th>Type</th>
+    <th>LINK</th>
+
+  </tr>
+
+    {% block content %}
+        {% for c in content_list %}
+            {% if c.term %}
+                <tr>
+                <td data-th="Foodie name">{{c.name}}</td>
+                    <td data-th="Type">{{c.term}}</td>
+
+                <td data-th="LINK"><a href="{{c.link}}">{{c.address}}</a></td>
+
+                </tr>
+            {% endif %}
+        {% endfor %}
+</table>
+        <br><br>
+<h4>EVENTS</h4><br>
+<table class="result-table">
+  <tr>
+    <th>EVENT NAME</th>
+      <th>TYPE</th>
+      <th>TICKET(CLICK IMG TO BUY)</TH>
+    <th>START</th>
+    <th>END</th>
+    <th>ADDRESS</th>
+    <th>STATUS</th>
+    <th>VENUE NAME</th>
+    <th>ORGANIZER</th>
+
+
+  </tr>
+
+        {% for c in content_list %}
+            {% if c.type %}
+                <tr>
+                <td data-th="EVENT NAME">{{c.eventName}}</td>
+                <td data-th="TYPE">{{c.type}}</td>
+                    <td data-th="TICKET(CLICK IMG TO BUY)"><a href="{{c.ticket}}"><img src="{{c.img}}"></a></td>
+                <td data-th="START">{{c.startTime}}</td>
+                <td data-th="END">{{c.endTime}}</td>
+                <td data-th="ADDRESS">{{c.address}}</td>
+                <td data-th="STATUS">{{c.status}}</td>
+                <td data-th="VENUE NAME">{{c.venueName}}</td>
+                <td data-th="ORGANIZER"><a href="{{c.orgUrl}}">{{c.orgName}}</a></th>
+
+
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+</table>
+<br><br>
+<h4>TRENDING</h4><br>
+<table class="result-table">
+  <tr>
+    <th>NAME</th>
+      <th>ADDRESS</th>
+    <th>PHONE</th>
+    <th>FACEBOOK</th>
+    <th>TWITTER</th>
+  </tr>
+
+        {% for c in content_list %}
+            {% if c.kind %}
+                <tr>
+                <td data-th="NAME">{{c.name}}</td>
+                <td data-th="TICKET"><a href="{{c.link}}">{{c.address}}</a></td>
+
+                <td data-th="PHONE">{{c.phone}}</td>
+                <td data-th="FACEBOOK">{{c.facebook}}</td>
+               <td data-th="FACEBOOK">{{c.twitter}}</td>
+
+                </tr>
+            {% endif %}
+        {% endfor %}
+    {% endblock%}
+
+</table>
+ <div id="map" style="width: 500px; height: 400px;"></div>
+
+  <script>
+    // Define your locations: HTML content for the info window, latitude, longitude
+    var locations = [
+        {% for c in content_list %}
+            {% if c.term %}
+                ['<a href = "{{c.link}}">{{c.name}}:{{c.close}}</a>',{{c.lat}},{{c.lon}},'{{c.term}}'],
+            {% elif c.type%}
+                ['<a href = "{{c.ticket}}">{{c.eventName}}</a>',{{c.lat}},{{c.lon}},'{{c.type}}'],
+            {%else %}
+                ['<a href = "{{c.link}}">{{c.name}}</a>',{{c.lat}},{{c.lon}},'{{c.kind}}'],
+            {% endif %}
+
+        {% endfor %}
+    ];
+
+
+    // Setup the different icons and shadows
+    var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
+
+    var icons = {
+            'bar':'https://maps.google.com/mapfiles/kml/shapes/bars.png',
+            'coffee':'https://maps.google.com/mapfiles/kml/shapes/coffee.png',
+            'restaurant':'https://maps.google.com/mapfiles/kml/shapes/dining.png',
+            'art':'https://maps.google.com/mapfiles/kml/shapes/arts.png',
+            'film':'https://maps.google.com/mapfiles/kml/shapes/movies.png',
+            'sports':'https://maps.google.com/mapfiles/kml/shapes/play.png',
+            'outdoor':'https://maps.google.com/mapfiles/kml/shapes/hiker.png',
+            'shopping':'https://maps.google.com/mapfiles/kml/shapes/shopping.png',
+            'hot':'https://maps.google.com/mapfiles/kml/shapes/firedept.png',
+            'fashion':'https://maps.google.com/mapfiles/kml/shapes/salon.png',
+            'holiday':'https://maps.google.com/mapfiles/kml/shapes/snowflake_simple.png'
+
+
+
+    }
+    var iconsLength = icons.length;
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(-88.0,41.8),
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: false,
+      streetViewControl: false,
+      panControl: false,
+      zoomControlOptions: {
+         position: google.maps.ControlPosition.LEFT_BOTTOM
+      }
+    });
+            var infowindow = new google.maps.InfoWindow({
+      maxWidth: 160
+    });
+
+    var markers = new Array();
+
+    var iconCounter = 0;
+
+    // Add the markers and infowindows to the map
+    for (var i = 0; i < locations.length; i++) {
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+        icon: icons[locations[i][3]]
+      });
+
+      markers.push(marker);
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+
+      iconCounter++;
+
+    }
+    function autoCenter() {
+      //  Create a new viewpoint bound
+      var bounds = new google.maps.LatLngBounds();
+      //  Go through each...
+      for (var i = 0; i < markers.length; i++) {
+				bounds.extend(markers[i].position);
+      }
+      //  Fit these bounds to the map
+      map.fitBounds(bounds);
+    }
+    autoCenter();
+
+  </script>
+
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!----//End-find-place---->
+		<!----start-offers---->
+
+		<!----//End-offers---->
+		<!---start-holiday-types---->
+
+		<!---//End-holiday-types---->
+		<!----//End-images-slider---->
+
+		<!----start-clients---->
+		<div class="clients">
+			<div class="client-head">
+				<h3>Happy Clients</h3>
+				<span> This is what our customer say about us and why they love our services! </span> <br> <br>
+
+							<img src="{% static "bootstrap/images/jami.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px; padding-left: 6cm;" >
+
+                            <img src="{% static "bootstrap/images/mike.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px;">
+
+                            <img src="{% static "bootstrap/images/jose.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px;">
+
+							<img src="{% static "bootstrap/images/laurence.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px;">
+                <br><br><br><br>
+			</div>
+			<div class="client-grids">
+
+			</div>
+		</div>
+		<!----//End-clients---->
+
+        <!----start-top-header----->
+			<div class="top-header" id="header">
+				<div class="wrap">
+				<div class="top-header-right">
+					<ul>
+						<li><a class="face" href="#"><span> </span></a></li>
+						<li><a class="twit" href="#"><span> </span></a></li>
+						<li><a class="thum" href="#"><span> </span></a></li>
+						<li><a class="pin" href="#"><span> </span></a></li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<!----//End-top-header----->
+
+		<!----//End-wrap---->
+	</body>
+</html>
+

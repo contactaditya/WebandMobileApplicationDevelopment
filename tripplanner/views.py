@@ -87,4 +87,5 @@ def get_name(request):
             return render(request,'story/index_userResponse.html',{'content_list':context_list})
 
     # if a GET (or any other method) we'll create a blank form
-    # else:
+    else:
+        return render(request,'story/index_userPreference.html')

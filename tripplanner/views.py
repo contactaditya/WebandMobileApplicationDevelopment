@@ -4,7 +4,9 @@ from django.http import HttpResponseRedirect
 
 from tripplanner.forms import NameForm
 from tripplanner.apiCall import *
-
+from django.contrib.auth.models import User
+from tripplanner.models import Additional
+from django.contrib.auth import authenticate,login
 
 def home(request):
     return render(request, 'story/index_home.html')
@@ -13,10 +15,37 @@ def home(request):
 def get_login(request):
     return render(request, 'story/login.html')
 
+def success_login(request):
+    username = request.POST['form-username']
+    password = request.POST['form-password']
+    user = authenticate(username=username, password=password)
+    context_dic = {'username':username}
+    if user is not None:
+    # the password verified for the user
+        if user.is_active:
+            login(request,user)
+            return render(request,'story/index_userPreference.html',context_dic)
+        else:
+            return HttpResponse("The password is valid, but the account has been disabled!")
+    else:
+    # the authentication system was unable to verify the username and password
+        return HttpResponse("The username and password were incorrect.",context_dic)
 
 def get_registration(request):
     return render(request, 'story/registration.html')
 
+def success_registration(request):
+    username=request.POST['username']
+    password=request.POST['password']
+    phone=request.POST['mobilephone']
+    user = User.objects.create_user(username=username,password=password)
+    add= Additional(user=user,phone=phone)
+    user.save()
+    add.save()
+    return render(request,'story/index_userPreference.html')
+
+def logout(request):
+    return HttpResponseRedirect('/')
 
 def get_userprofile(request):
     return render(request, 'story/userprofile.html')

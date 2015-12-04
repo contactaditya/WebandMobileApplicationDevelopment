@@ -27,12 +27,13 @@ urlpatterns = patterns('',
 
                 url(r'^your-search/', 'tripplanner.views.get_name',name='get_name'),
 
-                # send GET request
-
-                url(r'^my_yelp/', 'tripplanner.views.get_name',name='home'),
 
                 url(r'^login/', 'tripplanner.views.get_login',name='login'),
+                url(r'^success-login/', 'tripplanner.views.success_login',name='success_login'),
 
                 url(r'^registration/', 'tripplanner.views.get_registration',name='registration'),
+                url(r'^success-registration/', 'tripplanner.views.success_registration',name='success_registration'),
 
-                url(r'^userprofile/', 'tripplanner.views.get_userprofile',name='userprofile'),)
+                url(r'^userprofile/', 'tripplanner.views.get_userprofile',name='userprofile'),
+                url(r'^logout/','tripplanner.views.logout',name='home'))
+

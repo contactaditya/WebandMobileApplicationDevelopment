@@ -209,7 +209,7 @@ body{
 	box-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
 .flexy-menu ul{
-	top:60px;
+	top:70px;
 	left:0;
 }
 .flexy-menu ul li ul{
@@ -2726,33 +2726,4 @@ span.mail a:hover{
 	.slide-btns ul li a:hover {
 		border: solid 1px #1DD2AF;
 	}
-}
-
-#col1 {
-	float:left;
-	width:46%;
-	position:relative;
-	left:52%;
-	overflow:hidden;
-}
-#col2 {
-	float:left;
-	width:46%;
-	position:relative;
-	left:56%;
-	overflow:hidden;
-}
-#container2 {
-	clear:left;
-	float:left;
-	width:100%;
-	overflow:hidden;
-	background:#ffa7a7; /* column 2 background colour */
-}
-#container1 {
-	float:left;
-	width:100%;
-	position:relative;
-	right:50%;
-	background:#fff689; /* column 1 background colour */
 }

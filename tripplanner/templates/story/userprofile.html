@@ -1,10 +1,264 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> User Profile </title>
-</head>
-<body>
-This page will contain details about the current user.
-</body>
+{% load staticfiles %}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+            <title>Google Maps Multiple Markers</title>
+            <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <link href="{% static "bootstrap/css/mystyle.css"%}" rel='stylesheet' type='text/css' />
+		<title>cityTIPs | Trip Itinerary Planner</title>
+{#		<link href="images/css/style.css" rel='stylesheet' type='text/css' />#}
+        <link href="{% static "bootstrap/css/style.css"%}" rel='stylesheet' type='text/css' />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+{#		</script>#}
+		<script src="{% static "bootstrap/js/jquery.min.js"%}"></script>
+		<!---script---->
+		<link rel="stylesheet" href="{% static "bootstrap/css/jquery.bxslider.css" %}" type="text/css" />
+		<script src="{% static "bootstrap/js/jquery.bxslider.js"%}"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.bxslider').bxSlider({
+						 auto: true,
+ 						 autoControls: true,
+						 minSlides: 4,
+						 maxSlides: 4,
+						 slideWidth:450,
+						 slideMargin: 10
+					});
+				});
+			</script>
+		<!---//script---->
+		<!---smoth-scrlling---->
+			<script type="text/javascript">
+				$(document).ready(function(){
+									$('a[href^="#"]').on('click',function (e) {
+									    e.preventDefault();
+									    var target = this.hash,
+									    $target = $(target);
+									    $('html, body').stop().animate({
+									        'scrollTop': $target.offset().top
+									    }, 1000, 'swing', function () {
+									        window.location.hash = target;
+									    });
+									});
+								});
+				</script>
+		<!---//smoth-scrlling---->
+		<!----start-top-nav-script---->
+		<script type="text/javascript" src="{% static "bootstrap/js/flexy-menu.js"%}"></script>
+		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+		<!----//End-top-nav-script---->
+		<!---webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!---webfonts---->
+		<!--start slider -->
+	    <link rel="stylesheet" href="{% static "bootstrap/css/fwslider.css" %}" media="all">
+		<script src="{% static "bootstrap/js/jquery-ui.min.js" %}"></script>
+		<script src="{% static "bootstrap/js/css3-mediaqueries.js" %}"></script>
+		<script src="{% static "bootstrap/js/fwslider.js" %}"></script>
+		<!--end slider -->
+		<!---calender-style---->
+		<link rel="stylesheet" href="{% static "bootstrap/css/jquery-ui.css" %}"/>
+		<!---//calender-style---->
+	</head>
+	<body>
+		<!----start-wrap---->
+ <!----start-top-header----->
+			<div class="top-header" id="header">
+				<div class="wrap">
+				<div class="top-header-right">
+					<ul>
+						<li><a class="pin" href="#"><span> </span></a></li>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<!----//End-top-header----->
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<!--- start-logo---->
+				<div class="logo">
+					<a href="index.html"><img src="{% static "bootstrap/images/cityTipslogo.png" %}" title="cityTIPs" /></a>
+				</div>
+				<!--- //End-logo---->
+				<!--- start-top-nav---->
+				<div class="top-nav">
+						<ul class="flexy-menu thick orange">
+
+							<li><a href="/your-search/">FILL A PREFERENCE FORM </a></li>
+                            <li><a href="/logout/">LOGOUT</a></li>
+
+						</ul>
+						<!----search-scripts---->
+						<script src="{% static "bootstrap/js/modernizr.custom.js"%}"></script>
+						<script src="{% static "bootstrap/js/classie.js"%}"></script>
+						<script src="{% static "bootstrap/js/uisearch.js" %}"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+						<!----//search-scripts---->
+				</div>
+				<!--- //End-top-nav---->
+				<div class="clear"> </div>
+			</div>
+			<!---//End-header---->
+		</div>
+
+
+		<!----start-find-place---->
+		<div class="find-place">
+			<div class="wrap">
+				<div class="p-h">
+					<span>EXPLORE THE</span>
+					<label>CITY</label>
+				</div>
+{#				<!---strat-date-piker---->#}
+{#				  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>#}
+{#				  <script>#}
+{#				  $(function() {#}
+{#				    $( "#datepicker" ).datepicker();#}
+{#				  });#}
+{#				  </script>#}
+{#				<!---/End-date-piker---->#}
+				<div class="p-ww">
+                    <h1>MY INFORMATION</h1><br>
+<table class="result-table">
+     {% block content %}
+  <tr>
+    <th>USERNAME</th>
+     <td data-th="USERNAME">{{username}}</td>
+  </tr>
+    <tr>
+    <th>FIRST NAME</th>
+    <td data-th="FIRST NAME">{{firstname}}</td>
+        </tr>
+    <tr>
+    <th>LAST NAME</th>
+ <td data-th="LAST NAME">{{lastname}}</td>
+    </tr>
+    <tr>
+    <th>EMAIL</th>
+   <td data-th="EMAIL">{{email}}</td>
+    </tr>
+    <tr>
+    <th>PHONE</th>
+   <td data-th="MOBILE NUMBER">{{mobilenumber}}</td>
+    </tr>
+    <tr>
+    <th>LOCATION</th>
+   <td data-th="LOCATION">{{location}}</td>
+    </tr>
+    <tr>
+    <th>CITY</th>
+    <td data-th="CITY">{{city}}</td>
+    </tr>
+    <tr>
+    <th>STATE</th>
+    <td data-th="COUNTRY">{{country}}</td>
+    </tr>
+    <tr>
+    <th>ZIP</th>
+    <td data-th="ZIPCODE">{{zipcode}}</td>
+    </tr>
+    <tr>
+    <th>GENDER</th>
+   <td data-th="GENDER">{{gender}}</td>
+    </tr>
+    <tr>
+    <th>DOB</th>
+   <td data-th="DATE OF BIRTH">{{dateofbirth}}</td>
+  </tr>
+
+</table>
+
+        <br><br>
+<h4 align="left">MY SEARCHES</h4><br>
+<table align="left" class="result-table">
+    {% for c in content_list %}
+  <tr>
+    <th>CITY</th>
+    <td data-th="CITY">{{c.city}}</td>
+  </tr>
+  <tr>
+    <th>BAR</th>
+    <td data-th="BAR">{{c.bar}}</td>
+  </tr>
+  <tr>
+    <th>COFFEE</th>
+     <td data-th="COFFEE">{{c.coffee}}</td>
+  </tr>
+  <tr>
+    <th>RESTAURANT</th>
+     <td data-th="RESTAURANT">{{c.restaurant}}</td>
+  </tr>
+  <tr>
+    <th>SEARCH MY OWN FOOD&DRINKS</th>
+     <td data-th="SEARCH MY OWN FOOD&DRINKS">{{c.food}}</td>
+  </tr>
+  <tr>
+    <th>ARTS</th>
+    <td data-th="ARTS">{{c.art}}</td>
+  </tr>
+  <tr>
+    <th>FASHION</th>
+    <td data-th="FASHION">{{c.fashion}}</td>
+  </tr>
+  <tr>
+    <th>FILM</th>
+    <td data-th="FILM">{{c.film}}</td>
+  </tr>
+  <tr>
+    <th>HOLIDAY</th>
+    <td data-th="HOLIDAY">{{c.holiday}}</td>
+  </tr>
+  <tr>
+    <th>MUSIC</th>
+    <td data-th="MUSIC">{{c.music}}</td>
+  </tr>
+  <tr>
+    <th>SHOPPING</th>
+    <td data-th="SHOPPING">{{c.shopping}}</td>
+  </tr>
+  <tr>
+    <th>SPORTS</th>
+    <td data-th="SPORTS">{{c.sports}}</td>
+  </tr>
+  <tr>
+    <th>OUTDOOR</th>
+    <td data-th="OUTDOOR">{{c.outdoor}}</td>
+  </tr>
+  <tr>
+    <th>SEARCH MY OWN ACTIVITIES</th>
+    <td data-th="SEARCH MY OWN ACTIVITIES">{{c.acti}}</td>
+  </tr>
+  <tr>
+    <th>GIVE ME THE TREND</th>
+    <td data-th="GIVE ME THE TREND">{{c.trend}}</td>
+  </tr>
+    {% endfor %}
+
+</table>
+<br><br>
+
+    {% endblock%}
+
+</table><br><br><br>
+
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+
+	</body>
 </html>

@@ -5,8 +5,9 @@ from django.http import HttpResponseRedirect
 from tripplanner.forms import NameForm
 from tripplanner.apiCall import *
 from django.contrib.auth.models import User
-from tripplanner.models import Additional
+from tripplanner.models import Registration,Search
 from django.contrib.auth import authenticate,login
+
 
 def home(request):
     return render(request, 'story/index_home.html')
@@ -14,6 +15,7 @@ def home(request):
 
 def get_login(request):
     return render(request, 'story/login.html')
+
 
 def success_login(request):
     username = request.POST['form-username']
@@ -31,24 +33,56 @@ def success_login(request):
     # the authentication system was unable to verify the username and password
         return HttpResponse("The username and password were incorrect.",context_dic)
 
+
 def get_registration(request):
     return render(request, 'story/registration.html')
 
+
 def success_registration(request):
-    username=request.POST['username']
-    password=request.POST['password']
-    phone=request.POST['mobilephone']
-    user = User.objects.create_user(username=username,password=password)
-    add= Additional(user=user,phone=phone)
+    firstname = request.POST['firstname']
+    lastname = request.POST['lastname']
+    email = request.POST['emailid']
+    mobilenumber = request.POST['mobilenumber']
+    location = request.POST['location']
+    city = request.POST['city']
+    country = request.POST['country']
+    zipcode = request.POST['zipcode']
+    username = request.POST['username']
+    password = request.POST['password']
+    confirmpassword = request.POST['confirmpassword']
+    dateofbirth = request.POST['dateofbirth']
+    gender = request.POST['gender']
+    user = User.objects.create_user(username=username,password=password,email=email,first_name=firstname,last_name=lastname)
+    add = Registration.objects.create_add(user=user,mobilenumber=mobilenumber,location=location,city=city,country=country,\
+                                         zipcode=zipcode,confirmpassword=confirmpassword,dateofbirth=dateofbirth,\
+                                         gender=gender)
+
+    user = authenticate(username=username, password=password)
+    if user.is_active:
+        login(request,user)
     user.save()
     add.save()
+
     return render(request,'story/index_userPreference.html')
+
 
 def logout(request):
     return HttpResponseRedirect('/')
 
+
 def get_userprofile(request):
-    return render(request, 'story/userprofile.html')
+    if request.user.is_authenticated():
+        u=Registration.objects.filter(user=request.user)[0]
+        context_dic={'firstname': request.user.first_name, 'lastname': request.user.last_name, 'email': request.user.email,\
+                     'mobilenumber': u.mobilenumber, 'location': u.location, 'username': request.user.username,\
+                     'city': u.city, 'country': u.country, 'zipcode': u.zipcode,'gender': u.gender, 'dateofbirth': u.dateofbirth}
+        content_list=[]
+        for s in Search.objects.filter(user=request.user):
+            content_list.append({'city':s.city,'bar':s.bar,'coffee':s.coffee,'restaurant':s.restaurant,'food':s.food,\
+                                 'art':s.art,'fashion':s.fashion,'film':s.film,'holiday':s.holiday,'music':s.music,\
+                                 'shopping':s.shopping,'sports':s.sport,'outdoor':s.outdoor,'acti':s.acti,'trend':s.trend})
+        context_dic['content_list']=content_list
+    return render(request, 'story/userprofile.html', context_dic)
 
 
 def get_name(request):
@@ -75,8 +109,8 @@ def get_name(request):
             # FOURSQUARE
             trend = form.cleaned_data['trend']
             num_YelpCall = 5
-            num_EventbriteCall = 3
-            num_FoursquareCall=10
+            num_EventbriteCall = 5
+            num_FoursquareCall = 10
             context_list = []
             # YELP
             if bar == True:
@@ -86,10 +120,9 @@ def get_name(request):
             if restaurant == True:
                 context_list+=callYelp(city,'restaurant',num_YelpCall)
             if term != "":
-                context_list+=callYelp(city,term,2)
-            # EVENTBRITE
                 context_list+=callYelp(city,term,num_YelpCall)
-            #EVENTBRITE
+
+            # EVENTBRITE
             if art == True:
                 context_list+=callEventbrite(city,'art',num_EventbriteCall)
             if fashion == True:
@@ -108,12 +141,17 @@ def get_name(request):
                 context_list+=callEventbrite(city,'outdoor',num_EventbriteCall)
             if acti != "":
                 context_list+=callEventbrite(city,'concert',num_EventbriteCall)
-            #FOURSQUARE
-            #TREND
+            # FOURSQUARE
+            # TREND
             if trend == True:
                 context_list+=callFoursquare(city,num_FoursquareCall)
             # send Post request
-            return render(request,'story/index_userResponse.html',{'content_list':context_list})
+            user= request.user
+
+            search=Search.objects.create_search(user=user,city=city,bar=bar,coffee=coffee,restaurant=restaurant,food=term,art=art,\
+                        fashion=fashion,film=film,holiday=holiday,music=music,shopping=shopping,sport=sports,\
+                        outdoor=outdoor,acti=acti,trend=trend)
+            return render(request, 'story/index_userResponse.html', {'content_list':context_list})
 
     # if a GET (or any other method) we'll create a blank form
     else:

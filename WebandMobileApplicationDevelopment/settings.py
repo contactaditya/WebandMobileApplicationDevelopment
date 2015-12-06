@@ -14,10 +14,11 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_PATH = os.path.join(BASE_DIR,'static')
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     STATIC_PATH,
 )
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -45,14 +46,14 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
+      'django.contrib.sessions.middleware.SessionMiddleware',
+      'django.middleware.common.CommonMiddleware',
+      'django.middleware.csrf.CsrfViewMiddleware',
+      'django.contrib.auth.middleware.AuthenticationMiddleware',
+      'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+      'django.contrib.messages.middleware.MessageMiddleware',
+      'django.middleware.clickjacking.XFrameOptionsMiddleware',
+      'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = 'WebandMobileApplicationDevelopment.urls'
@@ -60,8 +61,7 @@ ROOT_URLCONF = 'WebandMobileApplicationDevelopment.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': PROJECT_PATH + '/templates/',
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,8 +82,18 @@ WSGI_APPLICATION = 'WebandMobileApplicationDevelopment.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'
+        'ENGINE': 'django.db.backends.mysql',
+        # Or the path to the database file if using sqlite3
+        'NAME': 'tripplanner',
+        # The following settings are not used with sqlite3
+        'USER': 'root',
+
+        'PASSWORD': '1234',
+        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP
+        'HOST': '127.0.0.1',
+        # Set to empty string for default
+        'PORT': '3306',
     }
 }
 

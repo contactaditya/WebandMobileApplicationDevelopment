@@ -76,52 +76,55 @@
                             <div class="form-bottom">
 			                    <form role="form" action="/success-registration/" method="post" class="registration-form">{% csrf_token %}
                                     <div class="form-group">
-			                    		<strong> First Name: </strong><label class="sr-only" for="firstname">First name: </label>
+			                    		<h4 style="color:white;"> First Name: </h4><label class="sr-only" for="firstname">First name: </label>
 			                        	<input type="text" name="firstname" class="form-first-name form-control" id="firstname">
 			                        </div>
 			                        <div class="form-group">
-			                        	<strong> Last Name: </strong><label class="sr-only" for="lastname">Last name: </label>
+			                        	<h4 style="color:white;">  Last Name: </h4><label class="sr-only" for="lastname">Last name: </label>
 			                        	<input type="text" name="lastname" class="form-last-name form-control" id="lastname">
 			                        </div>
 			                        <div class="form-group">
-			                        	<strong> Email Address: </strong><label class="sr-only" for="emailid">Email Address: </label>
+			                        	<h4 style="color:white;">  Email Address: </h4><label class="sr-only" for="emailid">Email Address: </label>
 			                        	<input type="text" name="emailid" class="form-email form-control" id="emailid">
 			                        </div>
-                                    <div class="form-group">
-			                        	<strong> Mobile Phone: </strong><label class="sr-only" for="mobilephone">Mobile Phone: </label>
-			                        	<input type="text" name="mobilephone" class="form-email form-control" id="mobilephone">
+			                        <div>
+			                        	<h4 style="color:white;"> Mobile Number: </h4><label class="sr-only" for="mobilenumber">Mobile Number: </label>
+			                        	<input type="text" name="mobilenumber" class="form-email form-control" id="mobilenumber">
 			                        </div>
                                     <div class="form-group">
-			                        	<strong> City: </strong><label class="sr-only" for="city">City: </label>
+			                        	<h4 style="color:white;">Location: </h4><label class="sr-only" for="location">Location: </label>
+			                        	<input type="text" name="location"  class="form-email form-control" id="location">
+			                        </div>
+                                    <div class="form-group">
+			                        	<h4 style="color:white;"> City: </h4><label class="sr-only" for="city">City: </label>
 			                        	<input type="text" name="city" class="form-email form-control" id="city">
 			                        </div>
                                     <div class="form-group">
-			                        	<strong> Country: </strong><label class="sr-only" for="country">Country: </label>
+			                        	<h4 style="color:white;"> Country: </h4><label class="sr-only" for="country">Country: </label>
 			                        	<input type="text" name="country" class="form-email form-control" id="country">
 			                        </div>
                                     <div class="form-group">
-			                        	<strong> Zip Code: </strong><label class="sr-only" for="zipcode">Zip Code: </label>
+			                        	<h4 style="color:white;"> Zip Code: </h4><label class="sr-only" for="zipcode">Zip Code: </label>
 			                        	<input type="text" name="zipcode" class="form-email form-control" id="zipcode">
 			                        </div>
-                                        </div>
                                     <div class="form-group">
-			                        	<strong> Username: </strong><label class="sr-only" for="username">User Name: </label>
+			                        	<h4 style="color:white;"> Username: </h4><label class="sr-only" for="username">User Name: </label>
 			                        	<input type="text" name="username" class="form-email form-control" id="username">
 			                        </div>
                                     <div class="form-group">
-			                            <strong> Password: </strong> <label class="sr-only" for="password"></label>
+			                            <h4 style="color:white;"> Password: </h4> <label class="sr-only" for="password"></label>
 			                        	<input type="text" name="password" class="form-email form-control" id="password">
 			                        </div>
                                     <div class="form-group">
-			                        	<strong> Confirm Password: </strong><label class="sr-only" for="confirmpassword"> Confirm Password: </label>
+			                        	<h4 style="color:white;"> Confirm Password: </h4> <label class="sr-only" for="confirmpassword"> Confirm Password: </label>
 			                        	<input type="text" name="confirmpassword" class="form-email form-control" id="confirmpassword">
 			                        </div>
                                     <div class="form-group">
-			                        	<strong> Date of Birth: </strong><label class="sr-only" for="dateofbirth">Date of Birth: </label>
+			                        	<h4 style="color:white;"> Date of Birth: </h4> <label class="sr-only" for="dateofbirth">Date of Birth: </label>
 			                        	<input type="text" name="dateofbirth" class="form-email form-control" id="dateofbirth">
 			                        </div>
                                        <div class="form-group">
-			                        	<strong> Gender: </strong><label class="sr-only" for="gender">Gender: </label>
+			                        	<h4 style="color:white;"> Gender: </h4> <label class="sr-only" for="gender">Gender: </label>
 			                        	<input type="text" name="gender" class="form-email form-control" id="gender">
 			                        </div>
 			                        <button type="submit" class="btn">Sign me up!</button>
@@ -146,7 +149,7 @@
 {#          <img style="position: absolute; margin: 0px; padding: 0px; border: none; width: 2000px; height: 900px; max-height: none; max-width: none; z-index: -999999; left: -382.5px; top: 0px;" src="{% static "assets1/img/backgrounds/1.jpg" %}">#}
         </div>
 
-        <img style="position: absolute; margin: 0px; padding: 0px; border: none; width: 2200px; height: 1450px; max-height: none; max-width: none; z-index: -999999; left: -386.333px; top: 0px;" src="{% static "assets1/img/backgrounds/4.jpg" %}">
+        <img style="position: absolute; margin: 0px; padding: 0px; border: none; width: 2200px; height: 1650px; max-height: none; max-width: none; z-index: -999999; left: -386.333px; top: 0px;" src="{% static "assets1/img/backgrounds/4.jpg" %}">
 
         <!--[if lt IE 10]>
              <script src="{% static "assets1/js/placeholder.js" %}"></script>

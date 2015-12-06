@@ -9,6 +9,7 @@ TOKEN_SECRET = 'xWXX3NnyDrUgsvz0WxhbtvATdVw'
 id = "JSJUFLMN4451RNIYBH1LAO1MUQNJNLV1V55CIL5L5DWKQDUW"
 secret = "MNF2SQOTOKNA22UIJ1XVRENF03O3PILS2VC1RXUTIM5NIC0X&v=20151111"
 
+
 def callYelp(location,term,limit):
     yelp_api = YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET)
     response = yelp_api.search_query(term=term, location=location, sort=0, limit=limit)
@@ -37,15 +38,22 @@ def callEventbrite(city,keyword,limit):
 
     for event in events[:limit]:
         single = {}
-        #INFO of event&ticket
+        # INFO of event&ticket
         single['type'] = keyword
         single['eventName']= event['name']['text']
-        single['img'] = event['logo']['url']
+        if 'logo' in event and event['logo'] != None:
+            if 'url' in event['logo'] and event['url'] != None:
+                single['img']=event['logo']['url']
+            else:
+                single['img']=""
+        else:
+            single['img'] = ""
+
         single['ticket']= event['url']
         single['startTime'] = event['start']['local']
         single['endTime'] = event['end']['local']
         single['status'] = event['status']
-        #INFO of venue
+        # INFO of venue
         r = requests.get("https://www.eventbriteapi.com/v3/venues/"+event['venue_id']+"/?token=5MKESEL3LITBDQVL6J2K").json()
         single['venueName'] = r['name']
         single['lat'] = r['latitude']
@@ -57,6 +65,7 @@ def callEventbrite(city,keyword,limit):
         single['orgUrl'] = o['url']
         context_list.append(single)
     return context_list
+
 
 def callFoursquare(city,limit):
     geo_response = requests.get("https://maps.googleapis.com/maps/api/geocode/json?address="+city+"&key=AIzaSyDYnHlAshPYjaL0SbfvTIucGtkbhoO3sQg")

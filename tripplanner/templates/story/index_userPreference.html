@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Voyage Website Template | Home :: w3layouts</title>
+		<title>cityTIPs | Trip Itinerary Planner</title>
 {#		<link href="images/css/style.css" rel='stylesheet' type='text/css' />#}
 
         <link href="{% static "bootstrap/css/style.css"%}" rel='stylesheet' type='text/css' />
@@ -75,7 +75,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="top-header-right">
 					<ul>
 						<li><a class="pin" href="#"><span> </span></a></li>
-						<div class="clear"> </div>
 					</ul>
 				</div>
 				<div class="clear"> </div>
@@ -95,10 +94,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!--- start-top-nav---->
 				<div class="top-nav">
 						<ul class="flexy-menu thick orange">
-							<li><a href="#">WELCOME TO THE HOME PAGE OF OUR WEB APPLICATION </a></li>
+							<li><a href="/userprofile/"> My Profile </a></li>
 						</ul>
 						<!----search-scripts---->
-						<script src="{%static "bootstrap/js/modernizr.custom.js"%}"></script>
+						<script src="{% static "bootstrap/js/modernizr.custom.js"%}"></script>
 						<script src="{% static "bootstrap/js/classie.js"%}"></script>
 						<script src="{% static "bootstrap/js/uisearch.js" %}"></script>
 						<script>
@@ -111,178 +110,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<!---//End-header---->
 		</div>
-		<!----start-images-slider---->
-{#		<div class="images-slider">#}
-{#			<!-- start slider -->#}
-{#		    <div id="fwslider">#}
-{#		        <div class="slider_container">#}
-{#                    <!--/slide -->#}
-{#                    <div class="slide">#}
-{#		                <img src="{% static "bootstrap/images/1.jpg" %}" alt="" height="510" width="1698"/>#}
-{##}
-{#		                <div class="slide_content">#}
-{#		                     <div class="slide_content_wrap">#}
-{#		                        <!-- Text title -->#}
-{#		                        <h4 class="title">To travel is to live</h4>#}
-{#		                        <!-- /Text title -->#}
-{#		                        <!-- Text description -->#}
-{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
-{#		                        <!-- /Text description -->#}
-{#		                        <div class="slide-btns description">#}
-{#		                        	<ul>#}
-{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
-{#		                        		<li><a class="minfo" href="registration.html"> Register </a></li>#}
-{#		                        		<div class="clear"> </div>#}
-{#		                        	</ul>#}
-{#		                        </div>#}
-{#		                    </div>#}
-{#		                </div>#}
-{#		            </div>#}
-{#		            <!--/slide -->#}
-{##}
-{#                    <div class="slide">#}
-{#		                <img src="{% static "bootstrap/images/2.jpg" %}" alt="" height="510" width="1698">#}
-{##}
-{#		                <div class="slide_content">#}
-{#		                     <div class="slide_content_wrap">#}
-{#		                        <!-- Text title -->#}
-{#		                        <h4 class="title">To travel is to live</h4>#}
-{#		                        <!-- /Text title -->#}
-{#		                        <!-- Text description -->#}
-{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
-{#		                        <!-- /Text description -->#}
-{#		                        <div class="slide-btns description">#}
-{#		                        	<ul>#}
-{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
-{#		                        		<li><a class="minfo" href="registration.html"> Register </a></li>#}
-{#		                        		<div class="clear"> </div>#}
-{#		                        	</ul>#}
-{#		                        </div>#}
-{#		                    </div>#}
-{#		                </div>#}
-{#		            </div>#}
-{#		            <!--/slide -->#}
-{##}
-{#                    <div class="slide">#}
-{#		                <img src="{% static "bootstrap/images/3.jpg" %}" alt="" height="510" width="1698">#}
-{##}
-{#		                <div class="slide_content">#}
-{#		                     <div class="slide_content_wrap">#}
-{#		                        <!-- Text title -->#}
-{#		                        <h4 class="title">To travel is to live</h4>#}
-{#		                        <!-- /Text title -->#}
-{#		                        <!-- Text description -->#}
-{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
-{#		                        <!-- /Text description -->#}
-{#		                        <div class="slide-btns description">#}
-{#		                        	<ul>#}
-{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
-{#		                        		<li><a class="minfo" href="registration.html"> Register </a></li>#}
-{#		                        		<div class="clear"> </div>#}
-{#		                        	</ul>#}
-{#		                        </div>#}
-{#		                    </div>#}
-{#		                </div>#}
-{#		            </div>#}
-{#		            <!--/slide -->#}
-{##}
-{#                    <div class="slide">#}
-{#		                <img src="{% static "bootstrap/images/4.jpg" %}" alt="" height="510" width="1698">#}
-{##}
-{#		                <div class="slide_content">#}
-{#		                     <div class="slide_content_wrap">#}
-{#		                        <!-- Text title -->#}
-{#		                        <h4 class="title">To travel is to live</h4>#}
-{#		                        <!-- /Text title -->#}
-{#		                        <!-- Text description -->#}
-{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
-{#		                        <!-- /Text description -->#}
-{#		                        <div class="slide-btns description">#}
-{#		                        	<ul>#}
-{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
-{#		                        		<li><a class="minfo" href="registration.html"> Register </a></li>#}
-{#		                        		<div class="clear"> </div>#}
-{#		                        	</ul>#}
-{#		                        </div>#}
-{#		                    </div>#}
-{#		                </div>#}
-{#		            </div>#}
-{#		            <!--/slide -->#}
-{##}
-{#                    <div class="slide">#}
-{#		                <img src="{% static "bootstrap/images/5.jpg" %}" alt="" height="510" width="1698">#}
-{##}
-{#		                <div class="slide_content">#}
-{#		                     <div class="slide_content_wrap">#}
-{#		                        <!-- Text title -->#}
-{#		                        <h4 class="title">To travel is to live</h4>#}
-{#		                        <!-- /Text title -->#}
-{#		                        <!-- Text description -->#}
-{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
-{#		                        <!-- /Text description -->#}
-{#		                        <div class="slide-btns description">#}
-{#		                        	<ul>#}
-{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
-{#		                        		<li><a class="minfo" href="registration.html"> Register </a></li>#}
-{#		                        		<div class="clear"> </div>#}
-{#		                        	</ul>#}
-{#		                        </div>#}
-{#		                    </div>#}
-{#		                </div>#}
-{#		            </div>#}
-{#		            <!--/slide -->#}
-{##}
-{#                    <div class="slide">#}
-{#		                <img src="{% static "bootstrap/images/6.jpg" %}" alt="" height="510" width="1698">#}
-{##}
-{#		                <div class="slide_content">#}
-{#		                     <div class="slide_content_wrap">#}
-{#		                        <!-- Text title -->#}
-{#		                        <h4 class="title">To travel is to live</h4>#}
-{#		                        <!-- /Text title -->#}
-{#		                        <!-- Text description -->#}
-{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
-{#		                        <!-- /Text description -->#}
-{#		                        <div class="slide-btns description">#}
-{#		                        	<ul>#}
-{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
-{#		                        		<li><a class="minfo" href="registration.html"> Register </a></li>#}
-{#		                        		<div class="clear"> </div>#}
-{#		                        	</ul>#}
-{#		                        </div>#}
-{#		                    </div>#}
-{#		                </div>#}
-{#		            </div>#}
-{#		            <!--/slide -->#}
-{##}
-{#                    <div class="slide">#}
-{#		                <img src="{% static "bootstrap/images/7.jpg" %}" alt="" height="510" width="1698">#}
-{##}
-{#		                <div class="slide_content">#}
-{#		                     <div class="slide_content_wrap">#}
-{#		                        <!-- Text title -->#}
-{#		                        <h4 class="title">To travel is to live</h4>#}
-{#		                        <!-- /Text title -->#}
-{#		                        <!-- Text description -->#}
-{#		                        <p class="description">You Don't Need Magic to Disappear. All you need is a destination.</p>#}
-{#		                        <!-- /Text description -->#}
-{#		                        <div class="slide-btns description">#}
-{#		                        	<ul>#}
-{#		                        		<li><a class="mapbtn" href="login.html"> Login </a></li>#}
-{#		                        		<li><a class="minfo" href="registration.html"> Register </a></li>#}
-{#		                        		<div class="clear"> </div>#}
-{#		                        	</ul>#}
-{#		                        </div>#}
-{#		                    </div>#}
-{#		                </div>#}
-{#		            </div>#}
-{#		            <!--/slide -->#}
-{#		        </div>#}
-{#		        <div class="slidePrev"><span> </span></div>#}
-{#		        <div class="slideNext"><span> </span></div>#}
-{#		    </div>#}
-{#		    <!--/slider -->#}
-{#		</div>#}
+
 		<!----start-find-place---->
 		<div class="find-place">
 			<div class="wrap">
@@ -302,22 +130,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="p-ww">
 					<form action="/your-search/" method="post">{% csrf_token %}
 						<span> Where</span><br>
-						<label for = "city"> </label> <input class="dest" type="text" name="city" id="city" value="{{ current_name }}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Destination';}"><br><br>
+               <label for = "city"> </label> <input class="dest" type="text" name="city" id="city" value="{{ current_name }}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Destination';}"><br><br>
 
-                        Bar<input type="checkbox" name="bar" value="bar"><br>
-                        Coffee<input type="checkbox" name="coffee" value="coffee"><br>
-                        Restaurant<input type="checkbox" name="restaurant" value="restaurant"><br><br>
+                <label for="bar">Bar: </label> <input type="checkbox" name="bar" value="bar" id ="bar"><br>
+                <label for="coffee">Coffee: </label> <input type="checkbox" name="coffee" value="coffee" id ="coffee"><br>
+                <label for="restaurant">Restaurant: </label> <input type="checkbox" name="restaurant" value="restaurant" id ="restaurant"><br><br>
 {#                        Search your Food&Drinks<label for = "term"> </label> <input class="dest" type="text" name="term" id="term" value="{{ current_name }}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Destination';}">#}
                         Search your Food&Drinks<br><br>
                         <label for = "term"> </label> <input class="dest" type="text" name="term" id="term"><br><br><br>
-                        Arts<input type="checkbox" name="art" value="art"><br><br>
-                        Fashion<input type="checkbox" name="fashion" value="fashion"><br><br>
-                        Film<input type="checkbox" name="film" value="film"><br><br>
-                        Holiday<input type="checkbox" name="holiday" value="holiday"><br><br>
-                        Music<input type="checkbox" name="music" value="music"><br><br>
-                        Shopping<input type="checkbox" name="shopping" value="shopping"><br><br>
-                        Sports<input type="checkbox" name="sports" value="sports"><br><br>
-                        Travel&Outdoor<input type="checkbox" name="outdoor" value="outdoor"><br><br>
+                <label for="arts">Arts: </label> <input type="checkbox" name="art" value="art" id="arts"><br><br>
+                <label for="fashion">Fashion: </label> <input type="checkbox" name="fashion" value="fashion" id="fashion"><br><br>
+                <label for="film">Film: </label> <input type="checkbox" name="film" value="film" id="film"><br><br>
+                <label for="holiday">Holiday: </label> <input type="checkbox" name="holiday" value="holiday" id="holiday"><br><br>
+                <label for="music">Music: </label> <input type="checkbox" name="music" value="music" id="music"><br><br>
+                <label for="shopping">Shopping: </label> <input type="checkbox" name="shopping" value="shopping" id="shopping"><br><br>
+                <label for="sports">Sports: </label> <input type="checkbox" name="sports" value="sports" id="sports"><br><br>
+                <label for="outdoor">Travel & Outdoor: </label> <input type="checkbox" name="outdoor" value="outdoor" id="outdoor"><br><br>
                         Search your Activity<br><label for = "acti"> </label> <input class="dest" type="text" name="acti" id="acti"><br><br>
 {#                        Top Picks of the city<input type="checkbox" name="pick" value="pick"><br><br>#}
                         Trending of the week in the city<input type="checkbox" name="trend" value="trend"><br><br>
@@ -329,325 +157,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 		<!----//End-find-place---->
-		<!----start-offers---->
-{#		<div class="offers">#}
-{#			<div class="offers-head">#}
-{#				<h3>Special Offers</h3>#}
-{#				<p>Best 2014 packages where people love to stay!</p>#}
-{#			</div>#}
-{#			<!-- start content_slider -->#}
-{#			<!-- FlexSlider -->#}
-{#			 <!-- jQuery -->#}
-{#			  <link rel="stylesheet" href="{% static "bootstrap/css/flexslider.css" %}" type="text/css" media="screen" />#}
-{#			  <!-- FlexSlider -->#}
-{#			  <script defer src="{% static "bootstrap/js/jquery.flexslider.js" %}"></script>#}
-{#			  <script type="text/javascript">#}
-{#			    $(function(){#}
-{#			      SyntaxHighlighter.all();#}
-{#			    });#}
-{#			    $(window).load(function(){#}
-{#			      $('.flexslider').flexslider({#}
-{#			        animation: "slide",#}
-{#			        animationLoop: true,#}
-{#			        itemWidth:250,#}
-{#			        itemMargin: 5,#}
-{#			        start: function(slider){#}
-{#			          $('body').removeClass('loading');#}
-{#			        }#}
-{#			      });#}
-{#			    });#}
-{#			  </script>#}
-{#			<!-- Place somewhere in the <body> of your page -->#}
-{#				 <section class="slider">#}
-{#		        <div class="flexslider carousel">#}
-{#		          <ul class="slides">#}
-{#		            <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p1.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		  	    		 <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p2.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		  	    		 <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p3.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		  	    		 <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p4.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		            <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p5.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		  	    		 <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p6.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		  	    		 <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p1.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		  	    		 <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p2.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		             <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p3.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		  	    	 <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p4.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		  	    		 <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p5.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		  	    		 <li onclick="location.href='#';">#}
-{#		  	    	    <img src="{% static "bootstrap/images/p6.jpg" %}" />#}
-{#		  	    	    <!----place-caption-info---->#}
-{#		  	    	    <div class="caption-info">#}
-{#		  	    	    	 <div class="caption-info-head">#}
-{#		  	    	    	 	<div class="caption-info-head-left">#}
-{#			  	    	    	 	<h4><a href="#">Hong Kong & Macau</a></h4>#}
-{#			  	    	    	 	<span>Bonus Extras!</span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="caption-info-head-right">#}
-{#		  	    	    	 		<span> </span>#}
-{#		  	    	    	 	</div>#}
-{#		  	    	    	 	<div class="clear"> </div>#}
-{#		  	    	    	 </div>#}
-{#		  	    	    </div>#}
-{#		  	    	     <!----//place-caption-info---->#}
-{#		  	    		</li>#}
-{#		          </ul>#}
-{#		        </div>#}
-{#		      </section>#}
-              <!-- //End content_slider -->
-{#		</div>#}
-		<!----//End-offers---->
-		<!---start-holiday-types---->
-{#			<div class="holiday-types">#}
-{#				<div class="wrap">#}
-{#					<div class="holiday-type-head">#}
-{#						<h3>Holidays Type</h3>#}
-{#						<span>get explore your dream to travel the world!</span>#}
-{#					</div>#}
-{#					<div class="holiday-type-grids">#}
-{#						<div class="holiday-type-grid" onclick="location.href='#';">#}
-{#							<span class="icon1"> </span>#}
-{#							<a href="#">Cruise</a>#}
-{#						</div>#}
-{#						<div class="holiday-type-grid" onclick="location.href='#';">#}
-{#							<span class="icon2"> </span>#}
-{#							<a href="#">City Breaks</a>#}
-{#						</div>#}
-{#						<div class="holiday-type-grid" onclick="location.href='#';">#}
-{#							<span class="icon3"> </span>#}
-{#							<a href="#">Honeymoon</a>#}
-{#						</div>#}
-{#						<div class="holiday-type-grid" onclick="location.href='#';">#}
-{#							<span class="icon4"> </span>#}
-{#							<a href="#">Adventure</a>#}
-{#						</div>#}
-{#						<div class="holiday-type-grid" onclick="location.href='#';">#}
-{#							<span class="icon5"> </span>#}
-{#							<a href="#">Safari</a>#}
-{#						</div>#}
-{#						<div class="holiday-type-grid" onclick="location.href='#';">#}
-{#							<span class="icon6"> </span>#}
-{#							<a href="#">Beach</a>#}
-{#						</div>#}
-{#						<div class="clear"> </div>#}
-{#					</div>#}
-{#				</div>#}
-{#				</div>#}
-		<!---//End-holiday-types---->
-		<!----//End-images-slider---->
-		<!----start-clients---->
-{#		<div class="clients">#}
-{#			<div class="client-head">#}
-{#				<h3>Happy Clients</h3>#}
-{#				<span> This is what our customer say about us and why they love our services! </span> <br> <br>#}
-{##}
-{#							<img src="{% static "bootstrap/images/jami.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px; padding-left: 6cm;" >#}
-{##}
-{#                            <img src="{% static "bootstrap/images/mike.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px;">#}
-{##}
-{#                            <img src="{% static "bootstrap/images/jose.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px;">#}
-{##}
-{#							<img src="{% static "bootstrap/images/laurence.jpg" %}" alt="Smiley face" style="float: left; margin-right: 125px;">#}
-{#                <br><br><br><br>#}
-{#			</div>#}
-{#			<div class="client-grids">#}
-{##}
-{#			</div>#}
-		</div>
-		<!----//End-clients---->
-
-        <!----start-top-header----->
-{#			<div class="top-header" id="header">#}
-{#				<div class="wrap">#}
-{#				<div class="top-header-right">#}
-{#					<ul>#}
-{#						<li><a class="face" href="#"><span> </span></a></li>#}
-{#						<li><a class="twit" href="#"><span> </span></a></li>#}
-{#						<li><a class="thum" href="#"><span> </span></a></li>#}
-{#						<li><a class="pin" href="#"><span> </span></a></li>#}
-{#						<div class="clear"> </div>#}
-{#					</ul>#}
-{#				</div>#}
-{#				<div class="clear"> </div>#}
-{#			</div>#}
-{#			</div>#}
-			<!----//End-top-header----->
-
-		<!----//End-wrap---->
+        <!----//End-wrap---->
 	</body>
 </html>
 

@@ -21,7 +21,7 @@ def success_login(request):
     username = request.POST['form-username']
     password = request.POST['form-password']
     user = authenticate(username=username, password=password)
-    context_dic = {'username':username}
+    context_dic = {'username':request.user.username}
     if user is not None:
     # the password verified for the user
         if user.is_active:
@@ -63,7 +63,7 @@ def success_registration(request):
     user.save()
     add.save()
 
-    return render(request,'story/index_userPreference.html')
+    return render(request,'story/index_userPreference.html',{'username':request.user.username})
 
 
 def logout(request):
@@ -140,7 +140,7 @@ def get_name(request):
             if outdoor == True:
                 context_list+=callEventbrite(city,'outdoor',num_EventbriteCall)
             if acti != "":
-                context_list+=callEventbrite(city,'concert',num_EventbriteCall)
+                context_list+=callEventbrite(city,acti,num_EventbriteCall)
             # FOURSQUARE
             # TREND
             if trend == True:
@@ -155,4 +155,4 @@ def get_name(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        return render(request,'story/index_userPreference.html')
+        return render(request,'story/index_userPreference.html',{'username':request.user.username})

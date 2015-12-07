@@ -88,13 +88,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="wrap">
 				<!--- start-logo---->
 				<div class="logo">
-					<a href="index.html"><img src="{% static "bootstrap/images/cityTipslogo.png" %}" title="cityTIPs" /></a>
+					<a href="/your-search/"><img src="{% static "bootstrap/images/cityTipslogo.png" %}" title="cityTIPs" /></a>
 				</div>
 				<!--- //End-logo---->
 				<!--- start-top-nav---->
 				<div class="top-nav">
 						<ul class="flexy-menu thick orange">
 							<li><a href="/userprofile/"> My Profile </a></li>
+                            <li><a href="/logout/">LOGOUT</a></li>
 						</ul>
 						<!----search-scripts---->
 						<script src="{% static "bootstrap/js/modernizr.custom.js"%}"></script>
@@ -117,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="p-h">
                     <label>Welcome Back, {{username}}</label>
 
-					<h1>LET'S EXPLORE</h1>
+					<h1 style="color:white">LET'S EXPLORE</h1>
 				</div>
 				<!---strat-date-piker---->
 				  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>

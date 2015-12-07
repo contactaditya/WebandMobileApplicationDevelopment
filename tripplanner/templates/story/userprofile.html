@@ -89,7 +89,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="wrap">
 				<!--- start-logo---->
 				<div class="logo">
-					<a href="index.html"><img src="{% static "bootstrap/images/cityTipslogo.png" %}" title="cityTIPs" /></a>
+					<a href="/userprofile/"><img src="{% static "bootstrap/images/cityTipslogo.png" %}" title="cityTIPs" /></a>
 				</div>
 				<!--- //End-logo---->
 				<!--- start-top-nav---->
@@ -120,8 +120,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="find-place">
 			<div class="wrap">
 				<div class="p-h">
-					<span>EXPLORE THE</span>
-					<label>CITY</label>
+					<label>{{username}}'s Information&Historical searches</label>
 				</div>
 {#				<!---strat-date-piker---->#}
 {#				  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>#}
@@ -185,66 +184,102 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <br><br>
 <h4 align="left">MY SEARCHES</h4><br>
 <table align="left" class="result-table">
+<tr>
+    <th>CITY</th>
+    <th>BAR</th>
+    <th>COFFEE</th>
+    <th>RESTAURANT</th>
+    <th>SEARCH MY OWN FOOD&DRINKS</th>
+    <th>ARTS</th>
+    <th>FASHION</th>
+    <th>FILM</th>
+    <th>HOLIDAY</th>
+    <th>MUSIC</th>
+    <th>SHOPPING</th>
+    <th>SPORTS</th>
+    <th>OUTDOOR</th>
+    <th>SEARCH MY OWN ACTIVITIES</th>
+    <th>GIVE ME THE TREND</th>
+</tr>
+
     {% for c in content_list %}
   <tr>
-    <th>CITY</th>
     <td data-th="CITY">{{c.city}}</td>
-  </tr>
-  <tr>
-    <th>BAR</th>
-    <td data-th="BAR">{{c.bar}}</td>
-  </tr>
-  <tr>
-    <th>COFFEE</th>
-     <td data-th="COFFEE">{{c.coffee}}</td>
-  </tr>
-  <tr>
-    <th>RESTAURANT</th>
-     <td data-th="RESTAURANT">{{c.restaurant}}</td>
-  </tr>
-  <tr>
-    <th>SEARCH MY OWN FOOD&DRINKS</th>
-     <td data-th="SEARCH MY OWN FOOD&DRINKS">{{c.food}}</td>
-  </tr>
-  <tr>
-    <th>ARTS</th>
-    <td data-th="ARTS">{{c.art}}</td>
-  </tr>
-  <tr>
-    <th>FASHION</th>
-    <td data-th="FASHION">{{c.fashion}}</td>
-  </tr>
-  <tr>
-    <th>FILM</th>
-    <td data-th="FILM">{{c.film}}</td>
-  </tr>
-  <tr>
-    <th>HOLIDAY</th>
-    <td data-th="HOLIDAY">{{c.holiday}}</td>
-  </tr>
-  <tr>
-    <th>MUSIC</th>
-    <td data-th="MUSIC">{{c.music}}</td>
-  </tr>
-  <tr>
-    <th>SHOPPING</th>
-    <td data-th="SHOPPING">{{c.shopping}}</td>
-  </tr>
-  <tr>
-    <th>SPORTS</th>
-    <td data-th="SPORTS">{{c.sports}}</td>
-  </tr>
-  <tr>
-    <th>OUTDOOR</th>
-    <td data-th="OUTDOOR">{{c.outdoor}}</td>
-  </tr>
-  <tr>
-    <th>SEARCH MY OWN ACTIVITIES</th>
+    {% if c.bar == 'True' %}
+        <td data-th="BAR">&#10004</td>
+    {% else  %}
+        <td data-th="BAR"></td>
+    {% endif %}
+
+    {% if c.coffee == 'True' %}
+        <td data-th="COFFEE">&#10004</td>
+    {% else  %}
+        <td data-th="COFFEE"></td>
+    {% endif %}
+
+    {% if c.restaurant == 'True' %}
+        <td data-th="RESTAURANT">&#10004</td>
+    {% else  %}
+        <td data-th="RESTAURANT"></td>
+    {% endif %}
+
+    <td data-th="SEARCH MY OWN FOOD&DRINKS">{{c.food}}</td>
+
+    {% if c.art == 'True' %}
+        <td data-th="ARTS">&#10004</td>
+    {% else  %}
+        <td data-th="ARTS"></td>
+    {% endif %}
+
+    {% if c.fashion == 'True' %}
+        <td data-th="FASHION">&#10004</td>
+    {% else  %}
+        <td data-th="FASHION"></td>
+    {% endif %}
+
+    {% if c.film == 'True' %}
+        <td data-th="FILM">&#10004</td>
+    {% else  %}
+        <td data-th="FILM"></td>
+    {% endif %}
+
+    {% if c.holiday == 'True' %}
+        <td data-th="HOLIDAY">&#10004</td>
+    {% else  %}
+        <td data-th="HOLIDAY"></td>
+    {% endif %}
+
+    {% if c.music == 'True' %}
+        <td data-th="MUSIC">&#10004</td>
+    {% else  %}
+        <td data-th="MUSIC"></td>
+    {% endif %}
+
+    {% if c.shopping == 'True' %}
+        <td data-th="SHOPPING">&#10004</td>
+    {% else  %}
+        <td data-th="SHOPPING"></td>
+    {% endif %}
+
+    {% if c.sports == 'True' %}
+        <td data-th="SPORTS">&#10004</td>
+    {% else  %}
+        <td data-th="SPORTS"></td>
+    {% endif %}
+
+    {% if c.outdoor == 'True' %}
+        <td data-th="OUTDOOR">&#10004</td>
+    {% else  %}
+        <td data-th="OUTDOOR"></td>
+    {% endif %}
+
     <td data-th="SEARCH MY OWN ACTIVITIES">{{c.acti}}</td>
-  </tr>
-  <tr>
-    <th>GIVE ME THE TREND</th>
-    <td data-th="GIVE ME THE TREND">{{c.trend}}</td>
+
+    {% if c.trend == 'True' %}
+        <td data-th="TREND">&#10004</td>
+    {% else  %}
+        <td data-th="TREND"></td>
+    {% endif %}
   </tr>
     {% endfor %}
 

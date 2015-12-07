@@ -100,6 +100,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<ul class="flexy-menu thick orange">
 
 							<li><a href="">REFILL A PREFERENCE FORM </a></li>
+                            <li><a href="/userprofile/">My Profile</a></li>
                             <li><a href="/logout/">LOGOUT</a></li>
 
 						</ul>
@@ -122,8 +123,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="find-place">
 			<div class="wrap">
 				<div class="p-h">
-					<span>EXPLORE THE</span>
-					<label>CITY</label>
+					<label>Search result</label>
 				</div>
 {#				<!---strat-date-piker---->#}
 {#				  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>#}
@@ -139,8 +139,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <tr>
     <th>Foodie name</th>
     <th>Type</th>
-    <th>LINK</th>
-
+    <th>Status(Click on status to see website)</th>
+    <th>Address</th>
   </tr>
 
     {% block content %}
@@ -149,8 +149,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <tr>
                 <td data-th="Foodie name">{{c.name}}</td>
                     <td data-th="Type">{{c.term}}</td>
-
-                <td data-th="LINK"><a href="{{c.link}}">{{c.address}}</a></td>
+                <td data-th="Status(Click on status to visit website)"><a href="c.link">{{c.close}}</a></td>
+                <td data-th="Address">{{c.address}}</td>
 
                 </tr>
             {% endif %}
@@ -161,14 +161,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <table class="result-table">
   <tr>
     <th>EVENT NAME</th>
-      <th>TYPE</th>
-      <th>TICKET(CLICK IMG TO BUY)</TH>
+    <th>TYPE</th>
+    <th>STATUS</th>
+
+    <th>TICKET(CLICK IMG TO BUY)</TH>
     <th>START</th>
     <th>END</th>
     <th>ADDRESS</th>
-    <th>STATUS</th>
     <th>VENUE NAME</th>
-    <th>ORGANIZER</th>
+    <th>ORGANIZER(Click to visit official website)</th>
 
 
   </tr>
@@ -178,13 +179,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <tr>
                 <td data-th="EVENT NAME">{{c.eventName}}</td>
                 <td data-th="TYPE">{{c.type}}</td>
-                    <td data-th="TICKET(CLICK IMG TO BUY)"><a href="{{c.ticket}}"><img src="{{c.img}}"></a></td>
+                <td data-th="STATUS">{{c.status}}</td>
+                <td data-th="TICKET(CLICK IMG TO BUY)"><a href="{{c.ticket}}"><img src="{{c.img}}"></a></td>
                 <td data-th="START">{{c.startTime}}</td>
                 <td data-th="END">{{c.endTime}}</td>
                 <td data-th="ADDRESS">{{c.address}}</td>
-                <td data-th="STATUS">{{c.status}}</td>
                 <td data-th="VENUE NAME">{{c.venueName}}</td>
-                <td data-th="ORGANIZER"><a href="{{c.orgUrl}}">{{c.orgName}}</a></td>
+                <td data-th="ORGANIZER(Click to visit official website)"><a href="{{c.orgUrl}}">{{c.orgName}}</a></td>
 
 
                 </tr>
@@ -197,7 +198,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <table class="result-table">
   <tr>
     <th>NAME</th>
-      <th>ADDRESS</th>
+    <th>WEBSITE(Click to visit)</th>
+     <th>ADDRESS</th>
     <th>PHONE</th>
     <th>FACEBOOK</th>
     <th>TWITTER</th>
@@ -207,7 +209,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             {% if c.kind %}
                 <tr>
                 <td data-th="NAME">{{c.name}}</td>
-                <td data-th="TICKET"><a href="{{c.link}}">{{c.address}}</a></td>
+                <td data-th="WEBSITE(Click to visit)"><a href="{{c.link}}">{{c.link}}</a></td>
+                <td data-th="ADDRESS">{{c.address}}</td>
 
                 <td data-th="PHONE">{{c.phone}}</td>
                 <td data-th="FACEBOOK">{{c.facebook}}</td>
@@ -228,7 +231,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             {% if c.term %}
                 ['<a href = "{{c.link}}">{{c.name}}:{{c.close}}</a>',{{c.lat}},{{c.lon}},'{{c.term}}'],
             {% elif c.type%}
-                ['<a href = "{{c.ticket}}">{{c.eventName}}</a>',{{c.lat}},{{c.lon}},'{{c.type}}'],
+                ['<a href = "{{c.ticket}}">{{c.eventName}}:{{c.status}}</a>',{{c.lat}},{{c.lon}},'{{c.type}}'],
             {%else %}
                 ['<a href = "{{c.link}}">{{c.name}}</a>',{{c.lat}},{{c.lon}},'{{c.kind}}'],
             {% endif %}
@@ -252,9 +255,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             'hot':'https://maps.google.com/mapfiles/kml/shapes/firedept.png',
             'fashion':'https://maps.google.com/mapfiles/kml/shapes/salon.png',
             'holiday':'https://maps.google.com/mapfiles/kml/shapes/snowflake_simple.png'
-
-
-
     }
     var iconsLength = icons.length;
     var map = new google.maps.Map(document.getElementById('map'), {

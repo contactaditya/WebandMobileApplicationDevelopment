@@ -9,7 +9,15 @@ TOKEN_SECRET = 'xWXX3NnyDrUgsvz0WxhbtvATdVw'
 id = "JSJUFLMN4451RNIYBH1LAO1MUQNJNLV1V55CIL5L5DWKQDUW"
 secret = "MNF2SQOTOKNA22UIJ1XVRENF03O3PILS2VC1RXUTIM5NIC0X&v=20151111"
 
-
+def formatAdd(list):
+    if list != []:
+        add=""
+        for i in list:
+            if i != None:
+                add+=i+","
+            continue
+        return add.rstrip(",")
+    return ""
 def callYelp(location,term,limit):
     yelp_api = YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET)
     response = yelp_api.search_query(term=term, location=location, sort=0, limit=limit)
@@ -19,7 +27,7 @@ def callYelp(location,term,limit):
         single = {}
         single['term'] = term
         single['name'] = r['name']
-        single['address'] =r['location']['display_address']
+        single['address'] =formatAdd(r['location']['display_address'])
         single['link'] = r['url']
         single['lat'] = r['location']['coordinate']['latitude']
         single['lon'] = r['location']['coordinate']['longitude']
@@ -58,7 +66,7 @@ def callEventbrite(city,keyword,limit):
         single['venueName'] = r['name']
         single['lat'] = r['latitude']
         single['lon'] = r['longitude']
-        single['address'] = [r['address']['address_1'],r['address']['city'],r['address']['region'],r['address']['postal_code']]
+        single['address'] = formatAdd([r['address']['address_1'],r['address']['city'],r['address']['region'],r['address']['postal_code']])
         # #INFO of organizer
         o = requests.get("https://www.eventbriteapi.com/v3/organizers/"+event['organizer_id']+"/?token=5MKESEL3LITBDQVL6J2K").json()
         single['orgName'] = o['name']
@@ -93,7 +101,7 @@ def callFoursquare(city,limit):
 
         single['name'] = f['name']
 
-        single['address'] = f['location']['formattedAddress']
+        single['address'] = formatAdd(f['location']['formattedAddress'])
         single['lat'],single['lon']= f['location']['lat'],f['location']['lng']
         context_list.append(single)
     return context_list

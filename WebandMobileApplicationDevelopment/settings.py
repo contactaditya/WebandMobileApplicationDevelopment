@@ -85,13 +85,13 @@ DATABASES = {
         # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'
         'ENGINE': 'django.db.backends.mysql',
         # Or the path to the database file if using sqlite3
-        'NAME': 'tripplanner',
+        'NAME': 'websysF15GB2',
         # The following settings are not used with sqlite3
-        'USER': 'root',
+        'USER': 'websysF15GB2',
 
-        'PASSWORD': '1234',
+        'PASSWORD': 'websysF15GB2!!',
         # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP
-        'HOST': '127.0.0.1',
+        'HOST': 'websys3.stern.nyu.edu',
         # Set to empty string for default
         'PORT': '3306',
     }

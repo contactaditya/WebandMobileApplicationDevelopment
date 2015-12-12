@@ -22,19 +22,18 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
                 url(r'^admin/', include(admin.site.urls)),
-                url(r'^$', 'tripplanner.views.home',name='home'),
+                url(r'^$', 'tripplanner.views.home', name='home'),
 
                 # send POST request
 
-                url(r'^your-search/', 'tripplanner.views.get_name',name='get_name'),
+                url(r'^your-search/', 'tripplanner.views.get_name', name='get_name'),
 
 
-                url(r'^login/', 'tripplanner.views.get_login',name='login'),
-                url(r'^success-login/', 'tripplanner.views.success_login',name='success_login'),
+                url(r'^login/', 'tripplanner.views.get_login', name='login'),
+                url(r'^success-login/', 'tripplanner.views.success_login', name='success_login'),
 
-                url(r'^registration/', 'tripplanner.views.get_registration',name='registration'),
-                url(r'^success-registration/', 'tripplanner.views.success_registration',name='success_registration'),
+                url(r'^registration/', 'tripplanner.views.get_registration', name='registration'),
+                url(r'^success-registration/', 'tripplanner.views.success_registration', name='success_registration'),
 
-                url(r'^userprofile/', 'tripplanner.views.get_userprofile',name='userprofile'),
-                url(r'^logout/','tripplanner.views.logout',name='home'))
-
+                url(r'^userprofile/', 'tripplanner.views.get_userprofile', name='userprofile'),
+                url(r'^logout/', 'tripplanner.views.logout_view', name='home'))

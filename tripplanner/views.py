@@ -6,7 +6,7 @@ from tripplanner.forms import NameForm
 from tripplanner.apiCall import *
 from django.contrib.auth.models import User
 from tripplanner.models import Registration,Search
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 
 
 def home(request):
@@ -21,17 +21,17 @@ def success_login(request):
     username = request.POST['form-username']
     password = request.POST['form-password']
     user = authenticate(username=username, password=password)
-    context_dic = {'username':request.user.username}
+    context_dic = {'username': request.user.username}
     if user is not None:
     # the password verified for the user
         if user.is_active:
             login(request,user)
-            return render(request,'story/index_userPreference.html',context_dic)
+            return render(request,'story/index_userPreference.html', context_dic)
         else:
             return HttpResponse("The password is valid, but the account has been disabled!")
     else:
     # the authentication system was unable to verify the username and password
-        return HttpResponse("The username and password were incorrect.",context_dic)
+        return HttpResponse("The username and password were incorrect.", context_dic)
 
 
 def get_registration(request):
@@ -52,9 +52,9 @@ def success_registration(request):
     confirmpassword = request.POST['confirmpassword']
     dateofbirth = request.POST['dateofbirth']
     gender = request.POST['gender']
-    user = User.objects.create_user(username=username,password=password,email=email,first_name=firstname,last_name=lastname)
-    add = Registration.objects.create_add(user=user,mobilenumber=mobilenumber,location=location,city=city,country=country,\
-                                         zipcode=zipcode,confirmpassword=confirmpassword,dateofbirth=dateofbirth,\
+    user = User.objects.create_user(username=username, password=password, email=email, first_name=firstname, last_name=lastname)
+    add = Registration.objects.create_add(user=user, mobilenumber=mobilenumber, location=location, city=city, country=country,\
+                                         zipcode=zipcode, confirmpassword=confirmpassword, dateofbirth=dateofbirth,\
                                          gender=gender)
 
     user = authenticate(username=username, password=password)
@@ -63,10 +63,11 @@ def success_registration(request):
     user.save()
     add.save()
 
-    return render(request,'story/index_userPreference.html',{'username':request.user.username})
+    return render(request, 'story/index_userPreference.html', {'username': request.user.username})
 
 
-def logout(request):
+def logout_view(request):
+    logout(request)
     return HttpResponseRedirect('/')
 
 
@@ -78,10 +79,10 @@ def get_userprofile(request):
                      'city': u.city, 'country': u.country, 'zipcode': u.zipcode,'gender': u.gender, 'dateofbirth': u.dateofbirth}
         content_list=[]
         for s in Search.objects.filter(user=request.user):
-            content_list.append({'city':s.city,'bar':s.bar,'coffee':s.coffee,'restaurant':s.restaurant,'food':s.food,\
-                                 'art':s.art,'fashion':s.fashion,'film':s.film,'holiday':s.holiday,'music':s.music,\
-                                 'shopping':s.shopping,'sports':s.sport,'outdoor':s.outdoor,'acti':s.acti,'trend':s.trend})
-        context_dic['content_list']=content_list
+            content_list.append({'city': s.city, 'bar': s.bar, 'coffee': s.coffee, 'restaurant': s.restaurant, 'food': s.food,\
+                                 'art': s.art, 'fashion':s.fashion, 'film':s.film, 'holiday':s.holiday, 'music': s.music,\
+                                 'shopping': s.shopping, 'sports': s.sport, 'outdoor': s.outdoor, 'acti': s.acti, 'trend': s.trend})
+        context_dic['content_list'] = content_list
     return render(request, 'story/userprofile.html', context_dic)
 
 
@@ -114,45 +115,45 @@ def get_name(request):
             context_list = []
             # YELP
             if bar == True:
-                context_list+=callYelp(city,'bar',num_YelpCall)
+                context_list += callYelp(city,'bar', num_YelpCall)
             if coffee == True:
-                context_list+=callYelp(city,'coffee',num_YelpCall)
+                context_list += callYelp(city, 'coffee', num_YelpCall)
             if restaurant == True:
-                context_list+=callYelp(city,'restaurant',num_YelpCall)
+                context_list += callYelp(city, 'restaurant', num_YelpCall)
             if term != "":
-                context_list+=callYelp(city,term,num_YelpCall)
+                context_list += callYelp(city, term, num_YelpCall)
 
             # EVENTBRITE
             if art == True:
-                context_list+=callEventbrite(city,'art',num_EventbriteCall)
+                context_list += callEventbrite(city, 'art', num_EventbriteCall)
             if fashion == True:
-                context_list+=callEventbrite(city,'fashion',num_EventbriteCall)
+                context_list += callEventbrite(city, 'fashion', num_EventbriteCall)
             if film == True:
-                context_list+=callEventbrite(city,'film',num_EventbriteCall)
+                context_list += callEventbrite(city,'film', num_EventbriteCall)
             if holiday == True:
-                context_list+=callEventbrite(city,'holiday',num_EventbriteCall)
+                context_list += callEventbrite(city, 'holiday', num_EventbriteCall)
             if music == True:
-                context_list+=callEventbrite(city,'music',num_EventbriteCall)
+                context_list += callEventbrite(city ,'music', num_EventbriteCall)
             if shopping == True:
-                context_list+=callEventbrite(city,'shopping',num_EventbriteCall)
+                context_list += callEventbrite(city, 'shopping', num_EventbriteCall)
             if sports == True:
-                context_list+=callEventbrite(city,'sports',num_EventbriteCall)
+                context_list += callEventbrite(city, 'sports', num_EventbriteCall)
             if outdoor == True:
-                context_list+=callEventbrite(city,'outdoor',num_EventbriteCall)
+                context_list += callEventbrite(city, 'outdoor', num_EventbriteCall)
             if acti != "":
-                context_list+=callEventbrite(city,acti,num_EventbriteCall)
+                context_list += callEventbrite(city, acti, num_EventbriteCall)
             # FOURSQUARE
             # TREND
             if trend == True:
-                context_list+=callFoursquare(city,num_FoursquareCall)
+                context_list += callFoursquare(city,num_FoursquareCall)
             # send Post request
             user= request.user
 
-            search=Search.objects.create_search(user=user,city=city,bar=bar,coffee=coffee,restaurant=restaurant,food=term,art=art,\
-                        fashion=fashion,film=film,holiday=holiday,music=music,shopping=shopping,sport=sports,\
-                        outdoor=outdoor,acti=acti,trend=trend)
+            search=Search.objects.create_search(user=user, city=city, bar=bar, coffee=coffee, restaurant=restaurant, food=term, art=art,\
+                        fashion=fashion, film=film, holiday=holiday, music=music, shopping=shopping, sport=sports,\
+                        outdoor=outdoor, acti=acti, trend=trend)
             return render(request, 'story/index_userResponse.html', {'content_list':context_list})
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        return render(request,'story/index_userPreference.html',{'username':request.user.username})
+        return render(request, 'story/index_userPreference.html', {'username':request.user.username})

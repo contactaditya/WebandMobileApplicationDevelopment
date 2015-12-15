@@ -9,6 +9,7 @@ from tripplanner.models import Registration,Search
 from django.contrib.auth import authenticate,login,logout
 
 
+
 def home(request):
     return render(request, 'story/index_home.html')
 
@@ -25,7 +26,7 @@ def success_login(request):
     if user is not None:
     # the password verified for the user
         if user.is_active:
-            login(request,user)
+            login(request, user)
             return render(request,'story/index_userPreference.html', context_dic)
         else:
             return HttpResponse("The password is valid, but the account has been disabled!")
@@ -152,7 +153,7 @@ def get_name(request):
             search=Search.objects.create_search(user=user, city=city, bar=bar, coffee=coffee, restaurant=restaurant, food=term, art=art,\
                         fashion=fashion, film=film, holiday=holiday, music=music, shopping=shopping, sport=sports,\
                         outdoor=outdoor, acti=acti, trend=trend)
-            return render(request, 'story/index_userResponse.html', {'content_list':context_list})
+            return render(request, 'story/index_userResponse.html', {'content_list': context_list})
 
     # if a GET (or any other method) we'll create a blank form
     else:

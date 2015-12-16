@@ -155,7 +155,6 @@ body{
 .top-nav{
 	float:left;
 	position: relative;
-	width: 40%;
 }
 /*----//main-header----*/
 /*----top-nav-----*/
@@ -203,9 +202,8 @@ body{
 	margin: 0;
 	padding: 0;
 	display: none;
-	position: absolute;
-	z-index: 99999;
-	width: 170px;
+	position: relative;
+	width: 500px;
 	background: rgba(44, 62, 80, 0.71);
 	box-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
@@ -363,7 +361,7 @@ body{
 	color:#fff!important;
 }
 .flexy-menu.vertical{
-	width:200px;
+	width:300px;
 }
 .flexy-menu.vertical li{
 	width:100%;
@@ -380,7 +378,7 @@ body{
 	width:100%;
 }
 .flexy-menu.vertical ul,.flexy-menu.vertical ul li ul{
-	width:150px;
+	width:250px;
 }
 .flexy-menu.vertical ul{
 	top:0;
@@ -595,7 +593,7 @@ input[type="search"].sb-search-input {
 }
 .p-ww{
 	float: right;
-	width: 85%;
+	width: 100%;
 	padding: 1.3em 0 0 0;
 }
 .p-ww span{

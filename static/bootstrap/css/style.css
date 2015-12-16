@@ -153,9 +153,9 @@ body{
 	margin-top: 2.2em;
 }
 .top-nav{
-	float:right;
+	float:left;
 	position: relative;
-	width: 67%;
+	width: 40%;
 }
 /*----//main-header----*/
 /*----top-nav-----*/
@@ -1757,7 +1757,7 @@ span.mail a:hover{
 		width: 80%;
 	}
 	.top-nav {
-		width: 70%;
+		width: 50%;
 	}
 	.p-ww span {
 		margin: 0 0.5em;	

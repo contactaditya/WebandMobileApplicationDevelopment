@@ -115,6 +115,8 @@
 #fwslider .slide_content_wrap { /* Slider Text Content Container Style */
     max-width:1280px;
     margin: 13.5% auto 0;
+
+
 	background-color: rgba(0,0,0,.5);
 }
 

@@ -130,14 +130,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!---/End-date-piker---->
 				<div class="p-ww">
 					<form action="/your-search/" method="post">{% csrf_token %}
-						<span> Where</span><br>
+						 Enter your city: <br> <br>
                <label for = "city"> </label> <input class="dest" type="text" name="city" id="city" value="{{ current_name }}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Destination';}"><br><br>
 
-                <label for="bar">Bar: </label> <input type="checkbox" name="bar" value="bar" id ="bar"><br>
-                <label for="coffee">Coffee: </label> <input type="checkbox" name="coffee" value="coffee" id ="coffee"><br>
+                <label for="bar">Bar: </label> <input type="checkbox" name="bar" value="bar" id ="bar"><br><br>
+                <label for="coffee">Coffee: </label> <input type="checkbox" name="coffee" value="coffee" id ="coffee"><br><br>
                 <label for="restaurant">Restaurant: </label> <input type="checkbox" name="restaurant" value="restaurant" id ="restaurant"><br><br>
 {#                        Search your Food&Drinks<label for = "term"> </label> <input class="dest" type="text" name="term" id="term" value="{{ current_name }}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Destination';}">#}
-                        Search your Food&Drinks<br><br>
+                        Search your Food & Drinks: <br><br>
                         <label for = "term"> </label> <input class="dest" type="text" name="term" id="term"><br><br><br>
                 <label for="arts">Arts: </label> <input type="checkbox" name="art" value="art" id="arts"><br><br>
                 <label for="fashion">Fashion: </label> <input type="checkbox" name="fashion" value="fashion" id="fashion"><br><br>
@@ -147,9 +147,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <label for="shopping">Shopping: </label> <input type="checkbox" name="shopping" value="shopping" id="shopping"><br><br>
                 <label for="sports">Sports: </label> <input type="checkbox" name="sports" value="sports" id="sports"><br><br>
                 <label for="outdoor">Travel & Outdoor: </label> <input type="checkbox" name="outdoor" value="outdoor" id="outdoor"><br><br>
-                        Search your Activity<br><label for = "acti"> </label> <input class="dest" type="text" name="acti" id="acti"><br><br>
+                        Search your Activity: <br><br><label for = "acti"> </label> <input class="dest" type="text" name="acti" id="acti"><br><br>
 {#                        Top Picks of the city<input type="checkbox" name="pick" value="pick"><br><br>#}
-                        Trending of the week in the city<input type="checkbox" name="trend" value="trend"><br><br>
+                        Trending of the week in the city: <input type="checkbox" name="trend" value="trend"><br><br>
                         <br>
                         <input type="submit" value="Submit">
 					</form>

@@ -22,11 +22,12 @@ def success_login(request):
     username = request.POST['form-username']
     password = request.POST['form-password']
     user = authenticate(username=username, password=password)
-    context_dic = {'username': request.user.username}
+    context_dic = {}
     if user is not None:
     # the password verified for the user
         if user.is_active:
             login(request, user)
+            context_dic['username']=request.user.username
             return render(request,'story/index_userPreference.html', context_dic)
         else:
             return HttpResponse("The password is valid, but the account has been disabled!")

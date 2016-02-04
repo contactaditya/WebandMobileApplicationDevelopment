@@ -7,7 +7,7 @@ class NameForm(forms.Form):
     bar = forms.BooleanField(required=False, label='bar')
     coffee = forms.BooleanField(required=False, label='coffee')
     restaurant = forms.BooleanField(required=False, label='restaurant')
-    term = forms.CharField(label='term', max_length=100,required=False)
+    term = forms.CharField(label='term', max_length=100, required=False)
 
     art = forms.BooleanField(required=False, label='art')
     fashion = forms.BooleanField(required=False, label='fashion')
@@ -17,8 +17,6 @@ class NameForm(forms.Form):
     shopping = forms.BooleanField(required=False, label='shopping')
     sports = forms.BooleanField(required=False, label='sports')
     outdoor = forms.BooleanField(required=False, label='outdoor')
-    acti = forms.CharField(label='acti',max_length=100,required=False)
+    acti = forms.CharField(label='acti',max_length=100, required=False)
 
-    trend = forms.BooleanField(required=False,label='trend')
-
-
+    trend = forms.BooleanField(required=False, label='trend')

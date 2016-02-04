@@ -9,15 +9,18 @@ TOKEN_SECRET = 'xWXX3NnyDrUgsvz0WxhbtvATdVw'
 id = "JSJUFLMN4451RNIYBH1LAO1MUQNJNLV1V55CIL5L5DWKQDUW"
 secret = "MNF2SQOTOKNA22UIJ1XVRENF03O3PILS2VC1RXUTIM5NIC0X&v=20151111"
 
+
 def formatAdd(list):
     if list != []:
-        add=""
+        add = ""
         for i in list:
             if i != None:
-                add+=i+","
+                add += i+","
             continue
         return add.rstrip(",")
     return ""
+
+
 def callYelp(location,term,limit):
     yelp_api = YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET)
     response = yelp_api.search_query(term=term, location=location, sort=0, limit=limit)
@@ -27,7 +30,7 @@ def callYelp(location,term,limit):
         single = {}
         single['term'] = term
         single['name'] = r['name']
-        single['address'] =formatAdd(r['location']['display_address'])
+        single['address'] = formatAdd(r['location']['display_address'])
         single['link'] = r['url']
         single['lat'] = r['location']['coordinate']['latitude']
         single['lon'] = r['location']['coordinate']['longitude']
@@ -42,18 +45,18 @@ def callYelp(location,term,limit):
 def callEventbrite(city,keyword,limit):
     response = requests.get("https://www.eventbriteapi.com/v3/events/search/?q="+keyword+"&venue.city="+city+"&date_modified.keyword=this_week&sort_by=best&token=5MKESEL3LITBDQVL6J2K")
     events = response.json()['events']
-    context_list= []
+    context_list = []
 
     for event in events[:limit]:
         single = {}
         # INFO of event&ticket
         single['type'] = keyword
-        single['eventName']= event['name']['text']
+        single['eventName'] = event['name']['text']
         if 'logo' in event and event['logo'] != None:
             if 'url' in event['logo'] and event['url'] != None:
-                single['img']=event['logo']['url']
+                single['img'] = event['logo']['url']
             else:
-                single['img']=""
+                single['img'] = ""
         else:
             single['img'] = ""
 
@@ -102,6 +105,6 @@ def callFoursquare(city,limit):
         single['name'] = f['name']
 
         single['address'] = formatAdd(f['location']['formattedAddress'])
-        single['lat'],single['lon']= f['location']['lat'],f['location']['lng']
+        single['lat'], single['lon'] = f['location']['lat'], f['location']['lng']
         context_list.append(single)
     return context_list

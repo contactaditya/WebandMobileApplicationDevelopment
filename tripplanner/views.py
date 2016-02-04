@@ -78,8 +78,8 @@ def get_userprofile(request):
         u=Registration.objects.filter(user=request.user)[0]
         context_dic={'firstname': request.user.first_name, 'lastname': request.user.last_name, 'email': request.user.email,\
                      'mobilenumber': u.mobilenumber, 'location': u.location, 'username': request.user.username,\
-                     'city': u.city, 'country': u.country, 'zipcode': u.zipcode,'gender': u.gender, 'dateofbirth': u.dateofbirth}
-        content_list=[]
+                     'city': u.city, 'country': u.country, 'zipcode': u.zipcode, 'gender': u.gender, 'dateofbirth': u.dateofbirth}
+        content_list = []
         for s in Search.objects.filter(user=request.user):
             content_list.append({'city': s.city, 'bar': s.bar, 'coffee': s.coffee, 'restaurant': s.restaurant, 'food': s.food,\
                                  'art': s.art, 'fashion':s.fashion, 'film':s.film, 'holiday':s.holiday, 'music': s.music,\
@@ -147,7 +147,7 @@ def get_name(request):
             # FOURSQUARE
             # TREND
             if trend == True:
-                context_list += callFoursquare(city,num_FoursquareCall)
+                context_list += callFoursquare(city, num_FoursquareCall)
             # send Post request
             user= request.user
 
